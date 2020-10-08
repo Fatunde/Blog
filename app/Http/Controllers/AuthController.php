@@ -1,0 +1,196 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Gate;
+use App\Post;
+use App\User;
+
+
+class AuthController extends Controller
+{
+
+    /**
+     * Create a new AuthController instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:api', ['except' => ['login']]);
+    }
+
+    /**
+     * Get a JWT token via given credentials.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if ($token = $this->guard()->attempt($credentials)) {
+            return $this->respondWithToken($token);
+            
+        }
+        
+
+        return response()->json(['error' => 'Unauthorized'], 401);
+        
+    }
+
+    /**
+     * Get the authenticated User
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function me()
+    {     
+        $user = response()->json($this->guard()->user());
+        $posts = response()->json($this->guard()->user()->posts);
+        
+        
+       $userdata = 
+           [$user];
+       
+       return $userdata;
+    }
+    
+    public function admin()
+
+    {     
+        $users = $this->guard()->user()->with('posts')->get();
+        if (Gate::allows('isAdmin')) {
+
+            return  $users;
+    
+        } else {
+    
+            return 'You are not Admin';
+    
+        }
+    }
+
+    public function index()
+
+    {  
+        $users = User::select('name', 'email', 'created_at', 'id', 'lastName', 'avatar', 'disable')->where('paid', 1)->where('activated', null)->get();
+        if (Gate::allows('isAdmin')) {
+
+            return  $users;
+    
+        } else {
+    
+            return 'You are not Admin';
+    
+        }
+       
+    }
+
+    public function update(Request $request, $id)
+    {      
+            $user = User::find($id);
+            if (Gate::allows('isUser')){          
+            $user->paid = $request-> input(true);
+            $user->save();
+            return  "Payment Saved";
+            } else {
+    
+            return 'Only Users can pay';
+    
+        }
+        
+    }
+
+    public function activate(Request $request, $id)
+    {
+        if (Gate::allows('isAdmin')){
+        $user = User::find($id);
+        $user->activated = $request-> input('activated');
+        $user->save();
+        return "User Accepted";
+        } else {
+    
+        return 'You are not an admin';
+
+    }
+    }
+
+    public function destroy(Request $request, $id)
+    
+    {
+        $user = User::find($id);
+        
+        if (Gate::allows('isAdmin')) {
+
+            $user ->delete();
+            return ('User Deleted');
+    
+        } else {
+    
+            return 'You are not Admin';
+    
+        }
+      
+    }
+    /**
+     * Log the user out (Invalidate the token)
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function logout()
+    {
+        $this->guard()->logout();
+
+        return response()->json(['message' => 'Successfully logged out']);
+    }
+
+    
+ 
+
+    /**
+     * Refresh a token.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function refresh()
+    {
+        return $this->respondWithToken($this->guard()->refresh());
+    }
+
+    /**
+     * Get the token array structure.
+     *
+     * @param  string $token
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function respondWithToken($token)
+    {
+        return response()->json([
+            
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => $this->guard()->factory()->getTTL() * 60
+        ]);
+    }
+
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\Guard
+     */
+    public function guard()
+    {
+        return Auth::guard();
+    }
+
+
+    
+}

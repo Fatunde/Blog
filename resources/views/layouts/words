@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ ("css/custom.css")}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    @include('sweetalert::alert')
+    @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+
+        <title>Management</title>
+        
+    </head>
+    <body>
+        <div class='container'>
+        @include('inc.messages')
+        @yield("content")
+    </div>
+    </body>
+</html>
+
+
+
+
+
+  <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-body">
+                   <h3>Your Blog Post</h3>
+                   @if (count($post) > 0)       
+                   <table class="table table-striped">
+                    <tr>
+                        <th>Title</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    @foreach ($posts as $post)
+                    <tr>
+                    <th>{{$post->title}}</th>
+                    <th><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a></th>
+                        <th></th>
+                    </tr>
+                    @endforeach
+                   </table> 
+                   @endif
+                </div>
+            </div>
