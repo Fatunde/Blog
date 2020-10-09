@@ -17,11 +17,18 @@ class UserController extends Controller
     public function index()
 
     {  
-        $total_posts = Post::count();
-        $users = User::with('posts')->get()->sortByDesc($total_posts);
+        $users = User::orderBy('post_counts', 'desc')->paginate(5);
         
-
         return  $users;
+    }
+
+    public function post_count(Request $request, $id)
+    {
+      
+        
+        $User = User::where('id', $id)->increment('post_counts', 1);
+        return ("User posted");;
+        //redirect('/posts')->with('success', 'Post Updated');
     }
 
     /**

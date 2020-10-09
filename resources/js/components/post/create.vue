@@ -135,6 +135,7 @@ export default {
                 .catch(error => {
                     console.error(error);
                 });
+            axios.put('/auth/post_count' + this.id, )
 
         }
     },

@@ -14,7 +14,7 @@ class AddViewToPostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->integer('view')->default(1);
+            $table->integer('tag')->nullable();
         });
     }
 

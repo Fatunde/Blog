@@ -64,6 +64,24 @@
             Top blog posters
         </div>
 
+        <div class="row  ml-lg-5">
+            <div v-bind:key="User.id" v-for="User in Users">
+                <div class="card" v-if="User.role == 'user' && User.post_counts >= 1" style="width: 200px;">
+                    <img class="card-img-top" :src='`images/${User.avatar}`' alt="Card image cap" style="height: 120px">
+                    <div class="card-body">
+                        <p class="card-text"> {{User.name}} {{User.lastName}}</p>
+                        <small>With {{User.post_counts}} posts</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li v-bind:class="[{disabled: !pagination.prev_paging_url}]" class="page-item"><a class="page-link btn btn-primary" @click="fetchUser(pagination.prev_paging_url)">Previous</a></li>
+                <li v-bind:class="[{disabled: !pagination.next_paging_url}]" class="page-item"><a class="page-link btn btn-primary" @click="fetchUser(pagination.next_paging_url)">Next</a></li>
+            </ul>
+        </nav>
+
     </section>
 </div>
 </template>
@@ -81,7 +99,12 @@ export default {
     data() {
 
         return {
-            User: {},
+            User: {
+                name: "",
+                lastNmae: "",
+                avatar: ""
+            },
+            Users: {},
 
             image_src: '../../public/images',
 
@@ -101,15 +124,12 @@ export default {
         }
     },
     created() {
-        axios.get('/auth/index')
-            .then(response => {
-                this.Users = response.data;
-                console.log(response.data)
-            }).catch(error => console.log(error))
 
         this.fetchPost();
 
         this.fetchRead();
+
+        this.fetchUser();
 
     },
     methods: {
@@ -117,6 +137,25 @@ export default {
 
             this.$router.push('/show')
 
+        },
+        fetchUser(page_url) {
+            let vm = this;
+            page_url = page_url || '/auth/index'
+            axios.get(page_url)
+                .then(response => {
+                    this.Users = response.data.data;
+                    console.log(this.Users)
+                    vm.makePaginating(response.data);
+                }).catch(error => console.log(error))
+        },
+        makePaginating(data) {
+            let paginating = {
+                current_paging: data.current_page,
+                last_paging: data.last_page,
+                next_paging_url: data.next_page_url,
+                prev_paging_url: data.prev_page_url
+            }
+            this.paginating = paginating
         },
         fetchPost(page_url) {
             let vm = this;

@@ -35,6 +35,7 @@ Route::group([
    
     Route::get('show/{id}','PostsController@show');
     Route::put('edit/{id}','PostsController@update');
+    Route::put('post_count{id}','UserController@post_count');
     Route::post('pay', 'PaymentController@redirectToGateway');
 
     
