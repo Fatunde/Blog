@@ -70,7 +70,7 @@ class PostsController extends Controller
           $name = time().'.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
           \Image::make($request->get('image'))->save(public_path('images/').$name);
         }
-
+        
 
         $this->validate($request, 
         ['title' => 'required',
@@ -82,6 +82,9 @@ class PostsController extends Controller
         $post->user_name = $request-> input('name');
         $post->image = $name;
         $post->save();
+
+        $id = $post->user_id;
+        User::where('id', $id)->increment('post_counts', 1);
         return ('Post Created');;     
     }
 
@@ -163,7 +166,10 @@ class PostsController extends Controller
     {
         
         $post = Post::find($id);
+        $user_id = $post->user_id;
         $post ->delete();
+        
+        User::where('id', $user_id)->decrement('post_counts', 1);
         return ('Post Removed');
     }
 }

@@ -49,6 +49,7 @@
 
                 <div class="card" v-bind:key="post.id" v-for="post in posts">
                     <router-link :to="{name:'Show', params:{id: post.id}}" style="color: black; text-decoration: none;">
+
                         <img class="card-img-top" :src='`images/${post.image}`' alt="Card image cap" style="height: 300px">
 
                         <div class="card-body text-center">
@@ -144,29 +145,7 @@ export default {
                     loader.hide()
                 } else {
                     this.$loading.show
-                }
-
-                axios.get('/auth/me', {
-                    headers: {
-                        Authorization: 'Bearer' + localStorage.getItem('token')
-                    }
-                }).then(response => {}, function (response) {
-                    foreach(response.data[0].original.posts, function (posts, post) {
-                        var totalItems = $(".carousel-item").length;
-                        if (totalItems === 0) {
-                            itemClass = "carousel-item active";
-                        } else {
-                            itemClass = "carousel-item";
-                        }
-                        console.log(totalItems);
-
-                        $('.carousel-inner').append(
-                            '<div class="carousel-caption">' +
-                            '<h3>' + post.title + '</h3>' +
-                            '<p>' + post.body + '</p>' +
-                            '</div>');
-                    });
-                });
+                };
             }
 
         }).catch(error => {

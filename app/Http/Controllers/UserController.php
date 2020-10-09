@@ -22,10 +22,8 @@ class UserController extends Controller
         return  $users;
     }
 
-    public function post_count(Request $request, $id)
-    {
-      
-        
+    public function post_count( $id)
+    {  
         $User = User::where('id', $id)->increment('post_counts', 1);
         return ("User posted");;
         //redirect('/posts')->with('success', 'Post Updated');
@@ -49,6 +47,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $post_counts = 0;
         $this->validate($request, 
         ['name' => 'required',
         'lastName' => 'required',
@@ -68,6 +67,7 @@ class UserController extends Controller
         $user->lastName = $request-> input('lastName');
         $user->email = $request-> input('email');
         $user->password = Hash::make($request-> input('password'));
+        $user->post_counts = $post_counts;
         $user->save();
         return "User created";
     }
