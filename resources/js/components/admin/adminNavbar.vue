@@ -19,11 +19,16 @@
                     <router-link to="/userspost" class="nav-link">
                         <p>Posts</p>
                     </router-link>
+                    <div class="row ml-1">
+                        <router-link to="/pendingusers" class="nav-link">
+                            <p>Pending users</p>
+                        </router-link>
 
-                    <router-link to="/pendingusers" class="nav-link">
-                        <p>Pending users</p>
-                    </router-link>
-                    <div class="text-danger pending">{{Pending_users}}</div>
+                        <div class="row" v-if="Pending_users"> <i class="fas fa-bell text-danger" style="margin-top: 10px; margin-left: 6px; font-size: 23px;">
+                            </i>
+                            <div class="text-white" style="margin-top: 9px; margin-left: -15px">{{Pending_users}}</div>
+                        </div>
+                    </div>
 
                 </ul>
 

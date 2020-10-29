@@ -45,12 +45,9 @@
                             <div class="form-group ">
                                 <label for="password" class="">Password</label>
 
-                                <div class="">
-                                    <input id="password" type="password" class="input form-control border text-muted" name="password" style=" font-weight: light" placeholder="Enter your password" required autocomplete="current-password" v-model="password">
-
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong></strong>
-                                    </span>
+                                <div class="input group ">
+                                    <input :type="type" class="input form-control border text-muted" name="password" id="password" placeholder="Enter the password" v-model="password">
+                                    <a class="btn" @click="showPassword" style="color:  #00008B; font-weight: bold; font-size: 13px; margin-left: -12px;">{{btnText}}</a>
                                 </div>
                             </div>
                             <button type="submit" class="button text-white" @click="submitLogin">
@@ -95,15 +92,21 @@ export default {
 
     data() {
         return {
+            btnText: "",
             error: "",
             email: "",
             password: "",
             loginError: false,
             formError: false,
-            emailError: false
+            emailError: false,
+            type: 'password',
+            btnText: 'Show Password',
+
         }
+
     },
     methods: {
+
         validEmail: function (email) {
             var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(email);
@@ -128,13 +131,28 @@ export default {
                 });
 
             }
+        },
+
+        showPassword() {
+            if (this.type === 'password') {
+                this.type = 'text'
+                this.btnText = 'Hide Password'
+            } else {
+                this.type = 'password'
+                this.btnText = 'Show Password'
+            }
         }
 
     }
+
 }
 </script>
 
 <style scoped>
+.input-group i {
+    cursor: pointer;
+}
+
 form {
     font-size: 18px;
     font-weight: bold;

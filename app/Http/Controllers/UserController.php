@@ -17,7 +17,7 @@ class UserController extends Controller
     public function index()
 
     {  
-        $users = User::orderBy('post_counts', 'desc')->paginate(5);
+        $users = User::orderBy('post_counts', 'desc')->paginate(6);
         
         return  $users;
     }
@@ -59,10 +59,12 @@ class UserController extends Controller
           $image = $request->get('image');
           $name = time().'.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
           \Image::make($request->get('image'))->save(public_path('images/').$name);
+        } else{
+            $name = "No Image";
         }
         
         $user = new User;
-        $user->avatar = $name;
+        $user->avatar = $request-> input($name);
         $user->name = $request-> input('name');
         $user->lastName = $request-> input('lastName');
         $user->email = $request-> input('email');
@@ -71,6 +73,8 @@ class UserController extends Controller
         $user->save();
         return "User created";
     }
+
+    
 
     /**
      * Display the specified resource.

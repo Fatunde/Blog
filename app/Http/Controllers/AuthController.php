@@ -53,15 +53,29 @@ class AuthController extends Controller
     public function me()
     {     
         $user = response()->json($this->guard()->user());
-        $posts = response()->json($this->guard()->user()->posts);
+        $posts = Auth::user()->posts()->orderBy('created_at', 'desc')->paginate(2);
+        $viewposts = Auth::user()->posts()->orderBy('view', 'desc')->paginate(4);
+        $allposts = Auth::user()->posts()->orderBy('created_at', 'desc')->get();
         
         
        $userdata = 
-           [$user];
+           [$user, $posts, $viewposts, $allposts];
        
        return $userdata;
     }
     
+    public function my()
+    {     
+        $user = response()->json($this->guard()->user());
+        $posts = response()->json($this->guard()->user()->posts);
+        
+        
+       $userView = 
+           [$user];
+       
+       return $userView;
+    }
+
     public function admin()
 
     {     

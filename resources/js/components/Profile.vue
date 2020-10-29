@@ -4,14 +4,27 @@
 
     <div class="card mt-3  card-body rounded " v-bind:key="User.id">
 
-        <router-link to="/profilepicture"> <img class="card-img-top" :src='`images/${User.avatar}`' alt="Card image cap" style="height: 300px; border-radius:200px;"></router-link>
-        <h5 class="mt-5" style="font-weight: 700">Name: {{User.name}} {{User.lastName}}</h5>
-        <h5 class="mt-5" style="font-weight: 700">Email: {{User.email}}</h5>
-        <h5 class="mt-5" style="font-weight: 700">No of Posts: {{posts.length}}</h5>
-        <div class="text-center mt-5">
-            <router-link to="/updateprofile" class="btn button" style="font-weight: 700" v-if="User.disable == 0 || User.disable == null">
-                <p class="mt-2">Edit Your Profile</p>
-            </router-link>
+        <router-link v-if="User.avatar" to="/profilepicture"> <img class="card-img-top" :src='`images/${User.avatar}`' alt="Card image cap" style="height: 300px; border-radius:200px;"></router-link>
+        <div v-else-if="User.avatar == null" style="height: 300px; border-radius:200px;" class="text-center border">
+            <div v-if="image" style="margin: auto;">
+                <input type="file" v-on:change="onImageChange" style="back-ground-color: #00008B" hidden id="upload">
+                <label for="upload"> <img :src="image" class="card-img-top" style="height: 300px; border-radius:200px; width: 300px"></label>
+                <button @click="handleSubmit" class="file text-center" style="margin-top: -30px">Upload</button>
+            </div>
+            <div v-else class="card-img-top">
+                <input type="file" v-on:change="onImageChange" style="back-ground-color: #00008B" hidden id="upload">
+                <label for="upload"> <i class="fas fa-user mt-3" style="font-size: 200px; color: #686363"></i></label>
+            </div>
+        </div>
+        <div class="down">
+            <h5 class="mt-5" style="font-weight: 700">{{User.name}} {{User.lastName}}</h5>
+            <h5 class="mt-5" style="font-weight: 700">{{User.email}}</h5>
+            <h5 class="mt-5" style="font-weight: 700">No of Posts: {{User.post_counts}}</h5>
+            <div class="text-center mt-2">
+                <router-link to="/updateprofile" class="btn button" style="font-weight: 700" v-if="User.disable == 0 || User.disable == null">
+                    <p class="mt-2">Edit Your Profile</p>
+                </router-link>
+            </div>
         </div>
 
     </div>
@@ -43,6 +56,39 @@ export default {
             })
 
     },
+    methods: {
+        onImageChange(e) {
+            let files = e.target.files || e.dataTransfer.files;
+            if (!files.length)
+                return;
+            this.createImage(files[0]);
+        },
+        createImage(file) {
+            let reader = new FileReader();
+            let vm = this;
+            reader.onload = (e) => {
+                vm.image = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        },
+        handleSubmit(e) {
+            e.preventDefault()
+
+            axios.put('/auth/profilepicture' + this.User.id, {
+
+                    image: this.image
+                })
+                .then(
+                    this.$router.push('/profileupdatesuccess')
+
+                )
+
+                .catch(error => {
+                    console.error(error);
+                });
+
+        }
+    },
     data() {
 
         return {
@@ -52,7 +98,8 @@ export default {
                 lastName: ""
 
             },
-            posts: []
+            posts: [],
+            image: ""
         }
     },
 
@@ -60,6 +107,22 @@ export default {
 </script>
 
 <style scoped>
+.down {
+    margin-top: 20px;
+}
+
+.file {
+    background-color: #00008B;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    width: 250px;
+    margin-left: 1rem;
+
+}
+
 .card {
     color: #00008B;
     margin: auto;
@@ -84,7 +147,7 @@ export default {
 
 .button {
     width: 190px;
-    height: 60px;
+    height: 50px;
     background-color: #00008B;
     border: none !important;
     outline: none !important;

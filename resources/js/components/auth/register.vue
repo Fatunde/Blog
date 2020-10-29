@@ -39,9 +39,7 @@
                     <div class="card-body">
                         <div>
                             <h3 class="text-center">Register</h3>
-                            <div class="col-md-3" v-if="image">
-                                <img :src="image" class="img-responsive" height="70" width="90">
-                            </div>
+
                         </div>
                         <form method="POST" action="/register" class="mt-5">
 
@@ -99,7 +97,11 @@
                             <div class="form-group">
 
                                 <div class="col-md-6">
-                                    <input type="file" v-on:change="onImageChange" class="form-control">
+                                    <input type="file" v-on:change="onImageChange" id="upload" hidden />
+                                    <label class="file text-center" for="upload">Upload Profile Picture</label>
+                                    <div class="col-md-3" v-if="image" style="margin: auto;">
+                                        <img :src="image" class="img-responsive" height="90" width="90" style="margin-left: 30px;">
+                                    </div>
                                 </div>
                             </div>
 
@@ -220,6 +222,18 @@ export default {
 </script>
 
 <style scoped>
+.file {
+    background-color: #00008B;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    width: 250px;
+    margin-left: 1rem;
+
+}
+
 form {
     font-size: 18px;
     font-weight: bold;

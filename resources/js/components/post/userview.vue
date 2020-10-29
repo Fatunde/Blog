@@ -44,6 +44,18 @@ export default {
                 console.log(error)
             });
         this.User = JSON.parse(localStorage.getItem('User'))
+        this.posts = JSON.parse(localStorage.getItem("post"))
+        console.log(this.User.id)
+        console.log(this.posts.user_id)
+        if (this.User.id != this.posts.user_id) {
+            axios.put('/auth/read' + id)
+                .then(response => {
+                    console.log(response)
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
+        };
     },
     data() {
 
@@ -68,6 +80,8 @@ export default {
                 console.log(error)
             })
             this.User = JSON.parse(localStorage.getItem('User'))
+            axios.put('/auth/read' + id)
+
         }
     },
 

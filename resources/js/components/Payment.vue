@@ -3,9 +3,9 @@
     <DashboardNavbar />
     <div class="box text-center mt-5  text-success boarder-white">
         <div>
-            <h4>Before you can create post you have to pay just 1000Naira only</h4>
+            <h4 style="color: #00008B">Before you can create post you have to pay just 1000Naira only</h4>
         </div>
-        <paystack :amount="amount" :email="email" :paystackkey="paystackkey" :reference="reference" :callback="callback" :close="close" :embed="false" class="btn btn-primary border-round">
+        <paystack :amount="amount" :email="email" :paystackkey="paystackkey" :reference="reference" :callback="callback" :close="close" :embed="false" class="btn btn-primary button border-round mt-5">
             <i class="fas fa-money-bill-alt"></i>
             Make Payment
         </paystack>
@@ -81,3 +81,28 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.button {
+    text-decoration: none;
+    background-color: #00008B;
+    height: 70px;
+    width: 250px;
+    opacity: 80%;
+    border-radius: 50px !important;
+    color: white;
+    text-align: center;
+
+}
+
+.button:hover {
+
+    background-color: white;
+    opacity: 200%;
+    transform: scale(1.10) translateZ(0);
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+    color: #00008B;
+
+}
+</style>

@@ -22,12 +22,14 @@ Route::group([
     Route::put('paid{id}', 'UserController@update');
     Route::put('activate{id}', 'UserController@activate');
     Route::put('profilepicture{id}', 'UserController@profilepicture');
+    Route::put('postImage{id}', 'PostsController@postImage');
     Route::get('activated', 'AuthController@index');
     Route::get('mostRead', 'PostsController@mostRead');
     Route::get('userPost{id}', 'PostsController@userPost');
     Route::delete('user{id}', 'AuthController@destroy');
     Route::resource('posts', 'PostsController');
     Route::get('index', 'PostsController@index');
+    Route::get('mostView{id}', 'PostsController@mostView');
    // Route::get('user', 'AuthController@user');
     Route::post('create', 'PostsController@store');
     Route::get('users','AuthController@index');
@@ -37,6 +39,7 @@ Route::group([
     Route::put('edit/{id}','PostsController@update');
     Route::put('post_count{id}','UserController@post_count');
     Route::post('pay', 'PaymentController@redirectToGateway');
+    Route::get('my', 'AuthController@my');
 
     
     Route::middleware('auth:api')->group(function () {

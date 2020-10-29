@@ -44,6 +44,7 @@ import Register from './components/auth/Register.vue'
 import Create from './components/post/create.vue'
 import Edit from './components/post/edit.vue'
 import userView from './components/post/userview.vue'
+import allpost from './components/post/allpost.vue'
 import Show from './components/post/show.vue'
 import Index from './components/post/index.vue'
 import userblog from './components/post/userblog'
@@ -98,6 +99,12 @@ const routes = [
         path: '/pendingusers',
         name: "Pendingusers",
         component: pendingUsers,
+        meta: { requiresAuth: true }
+    },
+    {
+        path: '/allpost',
+        name: 'Allpost',
+        component: allpost,
         meta: { requiresAuth: true }
     },
     {

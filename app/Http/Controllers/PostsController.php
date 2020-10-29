@@ -22,7 +22,7 @@ class PostsController extends Controller
     public function index()
     {
         
-        $posts = Post::orderBy('created_at', 'desc')->paginate(3);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
         
 
         return  $posts;
@@ -31,7 +31,7 @@ class PostsController extends Controller
     public function mostRead()
     {
         
-        $posts = Post::orderBy('view', 'desc')->paginate(3);
+        $posts = Post::orderBy('view', 'desc')->paginate(5);
         
 
         return  $posts;
@@ -69,7 +69,8 @@ class PostsController extends Controller
           $image = $request->get('image');
           $name = time().'.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
           \Image::make($request->get('image'))->save(public_path('images/').$name);
-        }
+        } else {$name = "No image";
+    }
         
 
         $this->validate($request, 
@@ -87,6 +88,23 @@ class PostsController extends Controller
         User::where('id', $id)->increment('post_counts', 1);
         return ('Post Created');;     
     }
+    public function postImage(Request $request, $id)   
+    {
+        
+        if($request->get('image'))
+        {
+           $image = $request->get('image');
+           $name = time().'.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
+           \Image::make($request->get('image'))->save(public_path('images/').$name);
+         }else {
+             $name = "No image";
+         }
+        $post = Post::find($id);
+        $post->image = $request-> input($name);
+        $post->save();
+        return "Done";
+    }
+
 
     /**
      * Display the specified resource.

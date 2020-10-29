@@ -4,14 +4,14 @@
 
     <section>
 
-        <div class="mt-5 ml-lg-5 recent">
+        <div class="mt-5 ml-5 recent">
             Most read blogs
         </div>
         <div class="row  ml-5">
 
             <div class="card" v-bind:key="read.id" v-for="read in reads">
                 <router-link :to="{name:'Userview', params:{id: read.id}}" style="color: black; text-decoration: none;">
-                    <img class="card-img-top" :src='`images/${read.image}`' alt="Card image cap" style="height: 300px">
+                    <img v-if="read.image !== 'No image'" class="card-img-top" :src='`images/${read.image}`' alt="Card image cap" style="height: 300px; border-radius: 10px 10px 0px 0px">
                     <div class="card-body">
                         <h5 class="card-title">{{read.title}}</h5>
                         <p class="card-text">{{read.body}}</p>
@@ -21,7 +21,7 @@
             </div>
 
         </div>
-        <nav aria-label="Page navigation example">
+        <nav class="pagination mt-5" aria-label="Page navigation example">
             <ul class="pagination">
                 <li v-bind:class="[{disabled: !paginator.prev_page}]" class="page-item"><a class="page-link btn btn-primary" @click="fetchRead(paginator.prev_page)">Previous</a></li>
                 <li v-bind:class="[{disabled: !paginator.next_page}]" class="page-item"><a class="page-link btn btn-primary" @click="fetchRead(paginator.next_page)">Next</a></li>
@@ -30,14 +30,14 @@
     </section>
 
     <section>
-        <div class="mt-5 ml-lg-5 recent">
+        <div class="mt-5 ml-5 recent">
             Recent blog posts
         </div>
 
-        <div class="row  ml-lg-5">
+        <div class="row  ml-5">
             <div class="card" v-bind:key="post.id" v-for="post in posts">
                 <router-link :to="{name:'Userview', params:{id: post.id}}" style="color: black; text-decoration: none;">
-                    <img class="card-img-top" :src='`images/${post.image}`' alt="Card image cap" style="height: 300px">
+                    <img v-if="post.image !== 'No image'" class="card-img-top" :src='`images/${post.image}`' alt="Card image cap" style="height: 300px; border-radius: 10px 10px 0px 0px">
                     <div class="card-body">
                         <h5 class="card-title">{{post.title}}</h5>
                         <p class="card-text">{{post.body}}</p>
@@ -52,7 +52,7 @@
 
             </div>
         </div>
-        <nav aria-label="Page navigation example">
+        <nav class="pagination mt-5" aria-label="Page navigation example">
             <ul class="pagination">
                 <li v-bind:class="[{disabled: !pagination.prev_page_url}]" class="page-item"><a class="page-link btn btn-primary" @click="fetchPost(pagination.prev_page_url)">Previous</a></li>
                 <li v-bind:class="[{disabled: !pagination.next_page_url}]" class="page-item"><a class="page-link btn btn-primary" @click="fetchPost(pagination.next_page_url)">Next</a></li>
@@ -60,14 +60,15 @@
         </nav>
     </section>
     <section>
-        <div class="mt-5 ml-lg-5 recent">
+        <div class="mt-5 ml-5 recent">
             Top blog posters
         </div>
 
-        <div class="row  ml-lg-5">
+        <div class="row  ml-5 mb-5">
             <div v-bind:key="User.id" v-for="User in Users">
-                <div class="card" v-if="User.role == 'user' && User.post_counts >= 1" style="width: 200px;">
-                    <img class="card-img-top" :src='`images/${User.avatar}`' alt="Card image cap" style="height: 120px">
+                <div class="card " v-if="User.role == 'user' && User.post_counts >= 1" style="width: 250px;">
+                    <img v-if="User.avatar" class="card-img-top" :src='`images/${User.avatar}`' alt="Card image cap" style="height: 180px; border-radius: 50px">
+                    <i v-else-if="User.avatar == null" class="fas fa-user mt-3 text-center" style="font-size: 165px; color: #686363"></i>
                     <div class="card-body">
                         <p class="card-text"> {{User.name}} {{User.lastName}}</p>
                         <small>With {{User.post_counts}} posts</small>
@@ -75,12 +76,6 @@
                 </div>
             </div>
         </div>
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li v-bind:class="[{disabled: !pagination.prev_paging_url}]" class="page-item"><a class="page-link btn btn-primary" @click="fetchUser(pagination.prev_paging_url)">Previous</a></li>
-                <li v-bind:class="[{disabled: !pagination.next_paging_url}]" class="page-item"><a class="page-link btn btn-primary" @click="fetchUser(pagination.next_paging_url)">Next</a></li>
-            </ul>
-        </nav>
 
     </section>
 </div>
@@ -199,6 +194,10 @@ export default {
 </script>
 
 <style scoped>
+.pagination {
+    margin: auto;
+}
+
 .recent {
     color: #00008B;
     font-size: 25px;

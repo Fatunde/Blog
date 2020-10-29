@@ -15,9 +15,9 @@
                                 entertain. We are MANAGEMENT.</p>
                         </div>
                         <div class="text-center" style="font-size: 25px; color: #00008B; font-weight: 700">Contact Us</div>
-                        <p class="text-center">Email: Management@yahoo.com</p>
-                        <p class="text-center">Facebook: Management@facebook </p>
-                        <p class="text-center">Whatsapp: 080111222333</p>
+                        <p class="text-center"><i class="fas fa-envelope mr-2" style="font-size: 25px"></i> Blog@blog.com</p>
+                        <p class="text-center"><i class="fab fa-facebook mr-2" style="font-size: 25px"></i> @Blog.facebook.com </p>
+                        <p class="text-center"><i class="fas fa-phone-square-alt mr-2" style="font-size: 25px"></i> 08011122233</p>
 
                     </div>
                 </div>
