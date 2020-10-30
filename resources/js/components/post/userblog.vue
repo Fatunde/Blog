@@ -15,7 +15,11 @@
                     <div class="card-body">
                         <h5 class="card-title">{{read.title}}</h5>
                         <p class="card-text">{{read.body}}</p>
-                        <small class="text-muted">By {{read.user_name}} on {{read.created_at}}</small>
+
+                        <small v-if="current_user.id == read.user_id" class="text-muted">On {{read.created_at}} by You</small>
+
+                        <small v-else class="text-muted">On {{read.created_at}} by {{read.user_name}}</small>
+
                     </div>
                 </router-link>
             </div>
@@ -41,7 +45,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{post.title}}</h5>
                         <p class="card-text">{{post.body}}</p>
-                        <div v-if="User.name == post.user_name">
+                        <div v-if="current_user.id == post.user_id">
                             <small class="text-muted">On {{post.created_at}} by You</small>
                         </div>
                         <div v-else>
@@ -110,7 +114,8 @@ export default {
             reads: {},
             pagination: {},
             paginator: {},
-            Users: {}
+            Users: {},
+            current_user: {}
 
         }
     },
@@ -120,6 +125,7 @@ export default {
         this.fetchPost();
 
         this.fetchRead();
+        this.current_user = JSON.parse(localStorage.getItem('User'))
 
     },
     methods: {

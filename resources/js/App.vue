@@ -17,7 +17,7 @@ template {
 .app {
     background-color: white;
 
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin-top: 0px;

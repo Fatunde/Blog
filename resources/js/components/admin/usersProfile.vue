@@ -1,22 +1,22 @@
 <template>
 <div>
     <adminNavbar />
+    <div class="row">
+        <div class="card-body card mt-3 rounded col-lg-2" v-bind:key="post.id" v-for="post in posts">
 
-    <div class="card-body card mt-3 rounded" v-bind:key="post.id" v-for="post in posts">
+            <div class="row">
+                <div class="col">
+                    <h5>{{post.title}}</h5>
+                </div>
+                <div class="col "> <button class="btn btn-danger ml-auto mt-2" @click="deletePost(post)">Delete Post</button>
+                </div>
+            </div>
 
-        <div class="row">
-            <div class="col">
-                <h5>{{post.title}}</h5>
-            </div>
-            <div class="col "> <button class="btn btn-danger ml-auto mt-2" @click="deletePost(post)">Delete Post</button>
-            </div>
+            <p>By {{post.user_name}}</p>
+            <small>{{post.created_at}}</small>
+
         </div>
-
-        <p>By {{post.user_name}}</p>
-        <small>{{post.created_at}}</small>
-
     </div>
-
 </div>
 </template>
 

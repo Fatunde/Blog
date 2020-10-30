@@ -6,7 +6,7 @@
         <DashboardNavbar />
 
         <div class="m-4 mb-5">
-            <h3 class="text-center" style="font-weight: 700">Welcome {{User.name}}</h3>
+            <h3 class="ml-5" style="font-weight: 700">Welcome {{User.name}}</h3>
         </div>
         <div class="text-center" style="font-weight: 700" v-if="User.disable == 1">
             <p class="checks">Your account has been disabled by the Management, contact the Administrator to Re-enable your account</p>
@@ -185,8 +185,8 @@
                 <div class="col">
 
                     <div class="">
-                        <div class="ml-5" style="font-size: 20px; font-weight: 700; margin-bottom: -30px">Your latest Posts</div>
-                        <div class=" m-lg-5 card mt-sm-2" v-bind:key="post.id" v-for="post in posts">
+                        <div class="ml-lg-5" style="font-size: 20px; font-weight: 700;">Your latest Posts</div>
+                        <div class=" ml-lg-5 card mt-3" v-bind:key="post.id" v-for="post in posts">
                             <div class="row">
                                 <div class="">
                                     <router-link class="row ml-3" :to="{name:'Userview', params:{id: post.id}}" style="color:#ffff; text-decoration: none;">
@@ -220,17 +220,17 @@
                                 </div>
                             </div>
 
-                            <div class="ml-4 mt-4"> <small class="text-muted">On {{post.created_at}}</small></div>
+                            <div class="ml-4 mt-4"> <small class="text-white">On {{post.created_at}}</small></div>
                         </div>
 
                     </div>
 
                 </div>
                 <div>
-                    <div class="" style="font-size: 20px; font-weight: 700; margin-bottom: -30px">Your Most Viewed Posts</div>
-                    <div class="cardy card-mid1 mr-5 mt-5 row">
+                    <div class="" style="font-size: 20px; font-weight: 700;">Your Most Viewed Posts</div>
+                    <div class="cardy card-mid1  mr-5 row">
 
-                        <div class=" card-view mt-sm-2 border m-1 ml-3" v-bind:key="postview.id" v-for="postview in postviews">
+                        <div class=" card-view mt-sm-2 border ml-1 ml-3" v-bind:key="postview.id" v-for="postview in postviews">
                             <div class="">
                                 <div class="m-4 text-center">
                                     <router-link class="" :to="{name:'Userview', params:{id: postview.id}}" style="color:#ffff; text-decoration: none;">
@@ -249,8 +249,8 @@
                     </div>
                 </div>
                 <div>
-                    <div class="" style="font-size: 20px; font-weight: 700; margin-bottom: -30px">Your Personal Information</div>
-                    <div class="cardy card-mid mr-5 mt-5 row">
+                    <div class="" style="font-size: 20px; font-weight: 700;">Your Personal Information</div>
+                    <div class="cardy card-mid mr-5  row">
                         <div class=" card-profile mt-sm-2 border m-4 mr-1">
                             <div class="">
                                 <div class="m-4 row">
@@ -430,10 +430,26 @@ export default {
 </script>
 
 <style scoped>
+@media screen and (max-width: 600px) {
+    .card {
+        width: 100% !important;
+
+    }
+
+    .card-view {
+        width: 400px !important;
+
+    }
+
+    .card-profile {
+        width: 100%;
+
+    }
+}
+
 .card-mid {
     width: 500px;
     margin-top: 5px;
-
     height: 75vh;
     background-color: #ffff;
 }
@@ -443,7 +459,7 @@ export default {
     width: 500px;
     margin-top: 5px;
 
-    height: 75vh;
+    height: 100%;
     background-color: #ffff;
 }
 
@@ -451,7 +467,7 @@ export default {
     width: 500px;
     margin-top: 5px;
 
-    height: 75vh;
+    height: 100%;
     background-color: #ffff;
 }
 

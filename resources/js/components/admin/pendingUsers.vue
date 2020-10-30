@@ -1,18 +1,19 @@
 <template>
-<div class="container">
+<div class="">
     <adminNavbar />
+    <div class="row">
+        <div class="card-body card mt-3 rounded col-lg-2" v-bind:key="User.id" v-for="User in Users">
+            <img class="card-img-top" :src='`images/${User.avatar}`' alt="Card image cap" style="height: 300px; border-radius:200px;">
+            <h5>First Name: {{User.name}}</h5>
+            <h5>Last Name: {{User.lastName}}</h5>
+            <p>Email: {{User.email}}</p>
+            <small>Joined on: {{User.created_at}}</small>
+            <p class="mt-4">
+                <button class="btn btn-danger" @click="deleteUser( User)">Reject User</button>
+                <button class="btn btn-success" @click="approveUser( User)">Approve User</button>
+            </p>
 
-    <div class="card-body card mt-3 rounded" v-bind:key="User.id" v-for="User in Users">
-        <img class="card-img-top" :src='`images/${User.avatar}`' alt="Card image cap" style="height: 300px; border-radius:200px;">
-        <h5>First Name: {{User.name}}</h5>
-        <h5>Last Name: {{User.lastName}}</h5>
-        <p>Email: {{User.email}}</p>
-        <small>Joined on: {{User.created_at}}</small>
-        <p class="mt-4">
-            <button class="btn btn-danger" @click="deleteUser( User)">Reject User</button>
-            <button class="btn btn-success" @click="approveUser( User)">Approve User</button>
-        </p>
-
+        </div>
     </div>
 
 </div>
@@ -109,7 +110,6 @@ p {
 }
 
 .card {
-    margin: 10px;
     height: 100%;
     width: 350px;
     margin-top: 50px;

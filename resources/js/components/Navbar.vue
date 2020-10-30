@@ -1,6 +1,6 @@
 <template>
 <div>
-    <nav class="navbar navbar-expand-md navbar-light shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light shadow-sm width: 100%">
 
         <a class="navbar-brand ml-lg-5">
             <h3 style="color: #00008B; font-weight: 700;">Management</h3>

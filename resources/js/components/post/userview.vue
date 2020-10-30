@@ -1,10 +1,10 @@
 <template>
 <div>
     <DashboardNavbar />
-    <div>
+    <div class="container">
 
         <div class="card-body card mt-3 rounded row-lg" style="height: 100%; " v-bind:key="post.id">
-            <img class="card-img-top" :src='`images/${post.image}`' alt="Card image cap" style="height: 300px">
+            <img class="card-img-top" :src='`images/${post.image}`' alt="Card image cap" style="height: 400px; width: 340px; margin: auto">
             <div class="row-lg text-center" style="color: #00008B">
                 <h3 class="mb-2">{{post.title}}</h3>
                 <p class="mt-5 mb-5">{{post.body}}</p>
@@ -89,24 +89,9 @@ export default {
 </script>
 
 <style scoped>
-.container {
-    height: 10em;
-    position: relative
-}
-
-.container h2 {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
-}
-
 .card {
-    height: 100%;
     margin: auto;
-    width: 300px;
+    width: 100%;
     margin-top: 50px;
     background-color: white;
     opacity: 80%;

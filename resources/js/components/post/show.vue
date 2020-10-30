@@ -1,9 +1,9 @@
 <template>
 <div>
     <Navbar />
-    <div>
-        <div class="card-body card mt-3 rounded row-lg" style="height: 100%; font-weight: 700" v-bind:key="post.id">
-            <img  v-if="post.image !== 'No image'" class="card-img-top" :src='`images/${post.image}`' alt="Card image cap" style="height: 300px">
+    <div class="container">
+        <div class="card-body card mt-3 rounded row-lg" style="height: 100%; font-weight: 700; m-5" v-bind:key="post.id">
+            <img v-if="post.image !== 'No image'" class="card-img-top" :src='`images/${post.image}`' alt="Card image cap" style="height: 400px; width: 340px; margin: auto">
             <div class="row-lg text-center" style="color: #00008B">
                 <h3 class="mb-5" style="font-weight: 700; ">{{post.title}}</h3>
                 <p class="mt-5 mb-5"> {{post.body}}</p>
@@ -65,7 +65,7 @@ export default {
 <style scoped>
 .card {
     margin: auto;
-    width: 300px;
+    width: 100%;
     margin-top: 50px;
     background-color: white;
     opacity: 80%;
