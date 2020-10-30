@@ -50,7 +50,8 @@ export default {
             },
             post_id: "",
             pagination: {},
-            edit: false
+            edit: false,
+            disable: true,
         }
 
     },
@@ -73,22 +74,24 @@ export default {
 
     methods: {
         deleteUser(User) {
-            axios.delete('/auth/user/' + User.id, {
-                headers: {
-                    Authorization: 'Bearer' + localStorage.getItem('token')
-                }
-            }).then(
-                console.log("User Deleted")
-            ).catch(error => {
-                console.log(error)
-            })
+            this.Users.splice(this.Users.indexOf(User), 1).then(
+                axios.put('/auth/disable/' + User.id, {
+                    disabled: this.disabled,
+
+                }).then(
+                    console.log("User Deleted")
+                ).catch(error => {
+                    console.log(error)
+                }))
         },
+
         approveUser(User) {
-            axios.put('auth/activate' + User.id, {
-                activated: this.activated
-            }).then(response => {
-                console.log(response)
-            })
+            this.Users.splice(this.Users.indexOf(User), 1).then(
+                axios.put('auth/activate' + User.id, {
+                    activated: this.activated
+                }).then(response => {
+                    console.log(response)
+                }))
         }
     },
 

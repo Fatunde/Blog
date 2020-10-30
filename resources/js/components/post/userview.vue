@@ -47,7 +47,7 @@ export default {
         this.posts = JSON.parse(localStorage.getItem("post"))
         console.log(this.User.id)
         console.log(this.posts.user_id)
-        if (this.User.id != this.posts.user_id) {
+        if (this.User.id !== this.posts.user_id) {
             axios.put('/auth/read' + id)
                 .then(response => {
                     console.log(response)
@@ -65,7 +65,8 @@ export default {
                 body: "",
                 created_at: ""
             },
-            User: {}
+            User: {},
+            Posts: {}
         }
     },
     methods: {

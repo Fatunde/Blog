@@ -64,22 +64,12 @@ class AuthController extends Controller
        return $userdata;
     }
     
-    public function my()
-    {     
-        $user = response()->json($this->guard()->user());
-        $posts = response()->json($this->guard()->user()->posts);
-        
-        
-       $userView = 
-           [$user];
-       
-       return $userView;
-    }
+    
 
     public function admin()
 
     {     
-        $users = $this->guard()->user()->with('posts')->get();
+        $users = Auth::user()->orderBy('created_at', 'desc')->get();
         if (Gate::allows('isAdmin')) {
 
             return  $users;

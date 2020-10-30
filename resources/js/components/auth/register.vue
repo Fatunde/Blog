@@ -38,7 +38,7 @@
                     </div>
                     <div class="card-body">
                         <div>
-                            <h3 class="text-center">Register</h3>
+                            <h3 class="text-center">Sign Up</h3>
 
                         </div>
                         <form method="POST" action="/register" class="mt-5">

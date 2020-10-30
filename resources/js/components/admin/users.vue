@@ -1,35 +1,36 @@
 <template>
-<div class="container">
+<div>
     <adminNavbar />
-    <div class="row">
+    <div class="container">
+        <div class="row">
 
-        <div class="card-body card mt-3 rounded text-center" v-bind:key="User.id" v-for="User in Users">
-            <div class="dropdown text-right">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Options
-                </button>
-                <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                    <div class="mt-3"> <a class="btn" style="color: #00008B" @click="deleteUser( User)">Delete User</a></div>
-                    <div v-if="User.disable == 0 || User.disable == null" class="mt-3"> <a class="btn" style="color: #00008B" @click="disableUser( User)">Disable User</a></div>
-                    <div class="mt-3" v-if="User.disable == 1"> <a class="btn" style="color: #00008B" @click="enableUser( User)">Enable User</a></div>
-                    <div class="mt-3">
+            <div class="card-body card mt-3 rounded text-center" v-bind:key="User.id" v-for="User in Users">
+                <div class="dropdown text-right">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Options
+                    </button>
+                    <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+                        <div class="mt-3"> <a class="btn" style="color: #00008B" @click="deleteUser( User)">Delete User</a></div>
+                        <div v-if="User.disable == 0 || User.disable == null" class="mt-3"> <a class="btn" style="color: #00008B" @click="disableUser( User)">Disable User</a></div>
+                        <div class="mt-3" v-if="User.disable == 1"> <a class="btn" style="color: #00008B" @click="enableUser( User)">Enable User</a></div>
+                        <div class="mt-3">
 
+                        </div>
                     </div>
                 </div>
+
+                <h5 class="mt-5">First Name: {{User.name}}</h5>
+                <h5 class="mt-5">Last Name:{{User.lastName}}</h5>
+                <p class="mt-5">Email: {{User.email}}</p>
+                <router-link :to="{name:'Usersprofile', params:{id: User.id}}" class="btn btn-primary posting" style="text-decoration: none; ">
+                    <p class="text-white mt-2">User's Posts</p>
+                </router-link>
+
+                <small class="mt-5">Created at: {{User.created_at}}</small>
+
             </div>
-
-            <h5 class="mt-5">First Name: {{User.name}}</h5>
-            <h5 class="mt-5">Last Name:{{User.lastName}}</h5>
-            <p class="mt-5">Email: {{User.email}}</p>
-            <router-link :to="{name:'Usersprofile', params:{id: User.id}}" class="btn btn-primary posting" style="text-decoration: none; ">
-                <p class="text-white mt-2">User's Posts</p>
-            </router-link>
-
-            <small class="mt-5">Created at: {{User.created_at}}</small>
-
         </div>
     </div>
-
 </div>
 </template>
 

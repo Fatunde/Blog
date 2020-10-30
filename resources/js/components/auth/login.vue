@@ -56,7 +56,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col">
                                     <div class="mt-5">
-                                        <router-link to="/" class="mt-5" style="text-decoration: none; color: #00008B">Home Page</router-link>
+                                        <router-link to="/" class="mt-5" style="text-decoration: none; color: #00008B">Home</router-link>
                                     </div>
                                 </div>
                                 <div class="col-auto mt-5">

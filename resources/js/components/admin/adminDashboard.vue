@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="">
     <adminNavbar />
     <div class="box text-center mt-5 ">
         <h3 class="">You are an Administrator</h3>
