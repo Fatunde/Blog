@@ -32,7 +32,7 @@
                                             <p v-if="User.post_counts == 1" class="card-title mt-2" style=" font-weight: 700">You have {{User.post_counts}} post</p>
                                             <p v-if="User.post_counts == 0" class="card-title mt-2" style=" font-weight: 700">You have no post</p>
                                         </div>
-                                        <div class="m-2 mt-2"> <small class="text-muted">with {{User.name}} views</small></div>
+                                        <div class="m-2 mt-2"> <small class="">Joined on {{User.created_at}}</small></div>
                                     </div>
                                 </div>
                             </router-link>
@@ -73,7 +73,7 @@
                                             <p v-if="User.post_counts == 1" class="card-title mt-2" style=" font-weight: 700">You have {{User.post_counts}} post</p>
                                             <p v-if="User.post_counts == 0" class="card-title mt-2" style=" font-weight: 700">You have no post</p>
                                         </div>
-                                        <div class="m-2 mt-2"> <small class="text-muted">with {{User.name}} views</small></div>
+                                        <div class="m-2 mt-2"> <small class="">Joined on {{User.created_at}}</small></div>
                                     </div>
                                 </div>
                             </router-link>
@@ -118,7 +118,7 @@
                                             <p v-if="User.post_counts == 1" class="card-title mt-2" style=" font-weight: 700">You have {{User.post_counts}} post</p>
                                             <p v-if="User.post_counts == 0" class="card-title mt-2" style=" font-weight: 700">You have no post</p>
                                         </div>
-                                        <div class="m-2 mt-2"> <small class="text-muted">with {{User.name}} views</small></div>
+                                        <div class="m-2 mt-2"> <small class="">Joined on {{User.created_at}}</small></div>
                                     </div>
                                 </div>
                             </router-link>
@@ -162,7 +162,7 @@
                                             <p v-if="User.post_counts == 1" class="card-title mt-2" style=" font-weight: 700">You have {{User.post_counts}} post</p>
                                             <p v-if="User.post_counts == 0" class="card-title mt-2" style=" font-weight: 700">You have no post</p>
                                         </div>
-                                        <div class="m-2 mt-2"> <small class="text-muted">with {{User.name}} views</small></div>
+                                        <div class="m-2 mt-2"> <small class="">Joined on {{User.created_at}}</small></div>
                                     </div>
                                 </div>
                             </router-link>
@@ -189,7 +189,7 @@
                         <div class=" m-lg-5 card mt-sm-2" v-bind:key="post.id" v-for="post in posts">
                             <div class="row">
                                 <div class="">
-                                    <router-link class="row ml-3" :to="{name:'Userview', params:{id: post.id}}" style="color:#02022c; text-decoration: none;">
+                                    <router-link class="row ml-3" :to="{name:'Userview', params:{id: post.id}}" style="color:#ffff; text-decoration: none;">
                                         <div>
                                             <img class="ml-4 mt-2" v-if="post.image !== 'No image'" :src='`images/${post.image}`' alt="Card image cap" style="height: 200px; width: 200px; border-radius: 100px;">
 
@@ -233,7 +233,7 @@
                         <div class=" card-view mt-sm-2 border m-1 ml-3" v-bind:key="postview.id" v-for="postview in postviews">
                             <div class="">
                                 <div class="m-4 text-center">
-                                    <router-link class="" :to="{name:'Userview', params:{id: postview.id}}" style="color:#02022c; text-decoration: none;">
+                                    <router-link class="" :to="{name:'Userview', params:{id: postview.id}}" style="color:#ffff; text-decoration: none;">
                                         <div>
                                             <img class="" v-if="postview.image !== 'No image'" :src='`images/${postview.image}`' alt="Card image cap" style="height: 150px; width: 150px; border-radius: 100px">
 
@@ -241,7 +241,7 @@
                                         <div class="mt-2">
                                             <h5 class="card-title" style=" font-weight: 700">{{postview.title}}</h5>
                                         </div>
-                                        <div class="mt-4"> <small class="text-muted">with {{postview.view}} views</small></div>
+                                        <div class="mt-4"> <small class="">with {{postview.view}} views</small></div>
                                     </router-link>
                                 </div>
                             </div>
@@ -254,7 +254,7 @@
                         <div class=" card-profile mt-sm-2 border m-4 mr-1">
                             <div class="">
                                 <div class="m-4 row">
-                                    <router-link class="" :to="{name:'Profile'}" style="color:#02022c; text-decoration: none;">
+                                    <router-link class="" :to="{name:'Profile'}" style="color:#ffff; text-decoration: none;">
                                         <div class="row">
                                             <div class="col">
                                                 <img v-if="User.avatar" class="card-img-top border" :src='`images/${User.avatar}`' alt="Card image cap" style="height: 150px; width: 150px; border-radius: 10px">
@@ -271,7 +271,7 @@
                                                     <p v-if="User.post_counts > 1" class="card-title mt-2" style=" font-weight: 700">You have {{User.post_counts}} posts</p>
                                                     <p v-if="User.post_counts == 1" class="card-title mt-2" style=" font-weight: 700">You have {{User.post_counts}} post</p>
                                                 </div>
-                                                <div class="m-2 mt-2"> <small class="text-muted">with {{User.name}} views</small></div>
+                                                <div class="m-2 mt-2"> <small class="">Joined on {{User.created_at}}</small></div>
                                             </div>
                                         </div>
                                     </router-link>
@@ -462,7 +462,7 @@ export default {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     transition: 0.3s;
     height: 300px;
-    background-color: #ffff;
+    background-color: #7979eb;
 }
 
 .card-view:hover {
@@ -481,7 +481,7 @@ export default {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     transition: 0.3s;
     height: 290px;
-    background-color: #ffff;
+    background-color: #7979eb;
 }
 
 .card-profile:hover {
@@ -528,7 +528,7 @@ export default {
     height: 100%;
     width: 600px;
     margin-top: 5px;
-    background-color: white;
+    background-color: #7979eb;
     opacity: 80%;
     border-radius: 10px !important;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
