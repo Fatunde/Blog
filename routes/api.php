@@ -39,14 +39,11 @@ Route::group([
     Route::put('edit/{id}','PostsController@update');
     Route::put('post_count{id}','UserController@post_count');
     Route::post('pay', 'PaymentController@redirectToGateway');
-    Route::get('my', 'AuthController@my');
     Route::post('reset-password', 'AuthController@sendPasswordResetLink');
     Route::post('reset/password', 'AuthController@callResetPassword');
+    Route::get('me', 'AuthController@me');
 
-    
-    Route::middleware('auth:api')->group(function () {
-        Route::get('me', 'AuthController@me');
-    });
+  
     
 
 });
