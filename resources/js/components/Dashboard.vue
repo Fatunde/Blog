@@ -391,14 +391,7 @@ export default {
                 };
             }
 
-            axios.get('/api/auth/my', {
-                headers: {
-                    Authorization: 'Bearer' + localStorage.getItem('token')
-                }
-            }).then(response)
-        }).catch(error => {
-            this.loginError = true
-        });
+        })
 
     },
 

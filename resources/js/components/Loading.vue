@@ -25,7 +25,7 @@ export default {
             onCancel: this.onCancel
         });
 
-        axios.get('/auth/me', {
+        axios.get('/api/auth/me', {
             headers: {
                 Authorization: 'Bearer' + localStorage.getItem('token')
             }
