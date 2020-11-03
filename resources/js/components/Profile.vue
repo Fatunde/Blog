@@ -41,7 +41,7 @@ export default {
     },
 
     mounted() {
-        axios.get('/auth/me', {
+        axios.get('/api/auth/me', {
                 headers: {
                     Authorization: 'Bearer' + localStorage.getItem('token')
                 }
@@ -74,7 +74,7 @@ export default {
         handleSubmit(e) {
             e.preventDefault()
 
-            axios.put('/auth/profilepicture' + this.User.id, {
+            axios.put('/api/auth/profilepicture' + this.User.id, {
 
                     image: this.image
                 })

@@ -51,7 +51,7 @@ export default {
     },
     mounted() {
         let id = this.$route.params.id;
-        axios.get('/auth/admin', {
+        axios.get('/api/auth/admin', {
                 headers: {
                     Authorization: 'Bearer' + localStorage.getItem('token')
                 }
@@ -67,7 +67,7 @@ export default {
     },
     created() {
         let id = this.$route.params.id;
-        axios.get('/auth/userPost' + id).then(response => {
+        axios.get('/api/auth/userPost' + id).then(response => {
             this.posts = response.data
             console.log(this.posts)
         }).catch(error => {
@@ -78,7 +78,7 @@ export default {
     methods: {
         deletePost(post) {
             this.posts.splice(this.posts.indexOf(post), 1)
-            axios.delete('/auth/posts/' + post.id).then((response) => {
+            axios.delete('/api/auth/posts/' + post.id).then((response) => {
                     console.log(response)
                 }
 

@@ -64,7 +64,7 @@ export default {
             this.$router.push("/pending")
         } else {
 
-            let uri = "auth/posts/" + this.$route.params.id;
+            let uri = "/api/auth/posts/" + this.$route.params.id;
             this.axios.get(uri).then((response) => {
                 this.post = response.data;
             });
@@ -72,7 +72,7 @@ export default {
     },
     methods: {
         updatePost() {
-            let uri = "auth/posts/" + this.$route.params.id;
+            let uri = "/api/auth/posts/" + this.$route.params.id;
             this.axios.put(uri, this.post).then((response) => {
                 this.$router.push({
                     name: 'Dashboard'

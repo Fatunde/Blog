@@ -31,7 +31,7 @@ export default {
 
         let id = this.$route.params.id;
 
-        axios.get('/auth/posts/' + id)
+        axios.get('/api/auth/posts/' + id)
             .then(response => {
 
                 localStorage.setItem("post", JSON.stringify(response.data))

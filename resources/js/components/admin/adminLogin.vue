@@ -81,7 +81,7 @@ export default {
     methods: {
         submitLogin(e) {
             this.loginError = false;
-            axios.post('/auth/login', {
+            axios.post('/api/auth/login', {
                 email: this.email,
                 password: this.password
             }).then(response => {

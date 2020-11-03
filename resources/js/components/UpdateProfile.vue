@@ -76,7 +76,7 @@ export default {
             }
         }).then(response => {
 
-            axios.get('auth/getuser' + response.data[0].original.id).then((response) => {
+            axios.get('/api/auth/getuser' + response.data[0].original.id).then((response) => {
                 this.User = response.data
                 this.id = this.User.id
                 console.log(this.User)
@@ -93,7 +93,7 @@ export default {
 
             e.preventDefault()
 
-            axios.put('auth/userUpdate' + this.id,
+            axios.put('/api/auth/userUpdate' + this.id,
                     this.User)
                 .then(response => {
                     this.$router.push('/profileupdatesuccess')

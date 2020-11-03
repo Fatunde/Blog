@@ -34,7 +34,7 @@ export default {
 
         let id = this.$route.params.id;
 
-        axios.get('/auth/posts/' + id)
+        axios.get('/api/auth/posts/' + id)
             .then(response => {
 
                 localStorage.setItem("post", JSON.stringify(response.data))
@@ -48,7 +48,7 @@ export default {
         console.log(this.User.id)
         console.log(this.posts.user_id)
         if (this.User.id !== this.posts.user_id) {
-            axios.put('/auth/read' + id)
+            axios.put('/api/auth/read' + id)
                 .then(response => {
                     console.log(response)
                 })
@@ -73,7 +73,7 @@ export default {
 
         deletePost(post) {
             this.posts.splice(this.posts.indexOf(post), 1)
-            axios.delete('/auth/posts/' + post.id).then((response) => {
+            axios.delete('/api/auth/posts/' + post.id).then((response) => {
                     console.log(response)
                 }
 
@@ -81,7 +81,7 @@ export default {
                 console.log(error)
             })
             this.User = JSON.parse(localStorage.getItem('User'))
-            axios.put('/auth/read' + id)
+            axios.put('/api/auth/read' + id)
 
         }
     },

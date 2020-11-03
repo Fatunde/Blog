@@ -40,7 +40,7 @@ export default {
 
         let id = this.$route.params.id;
 
-        axios.get('/auth/posts/' + id)
+        axios.get('/api/auth/posts/' + id)
             .then(response => {
 
                 localStorage.setItem("post", JSON.stringify(response.data))
@@ -50,7 +50,7 @@ export default {
                 console.log(error)
             });
 
-        axios.put('/auth/read' + id)
+        axios.put('/api/auth/read' + id)
             .then(response => {
                 console.log(response)
             })

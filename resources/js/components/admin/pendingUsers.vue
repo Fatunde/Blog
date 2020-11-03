@@ -55,7 +55,7 @@ export default {
     },
 
     mounted() {
-        axios.get('/auth/activated', {
+        axios.get('/api/auth/activated', {
                 headers: {
                     Authorization: 'Bearer' + localStorage.getItem('token')
                 }
@@ -72,7 +72,7 @@ export default {
 
     methods: {
         deleteUser(User) {
-            axios.delete('/auth/user/' + User.id, {
+            axios.delete('/api/auth/user/' + User.id, {
                 headers: {
                     Authorization: 'Bearer' + localStorage.getItem('token')
                 }
@@ -83,7 +83,7 @@ export default {
             })
         },
         approveUser(User) {
-            axios.put('auth/activate' + User.id, {
+            axios.put('/api/auth/activate' + User.id, {
                 activated: this.activated
             }).then(response => {
                 console.log(response)

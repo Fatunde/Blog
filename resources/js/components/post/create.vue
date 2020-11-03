@@ -77,7 +77,7 @@ export default {
     },
 
     mounted() {
-        axios.get('/auth/me', {
+        axios.get('/api/auth/me', {
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token')
                 }
@@ -119,7 +119,7 @@ export default {
         handleSubmit(e) {
             e.preventDefault()
 
-            axios.post('/auth/posts', {
+            axios.post('/api/auth/posts', {
                     title: this.title,
                     body: this.body,
                     id: this.id,

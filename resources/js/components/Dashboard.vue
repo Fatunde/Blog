@@ -366,7 +366,7 @@ export default {
 
         });
 
-        axios.get('/auth/me', {
+        axios.get('/api/auth/me', {
             headers: {
                 Authorization: 'Bearer' + localStorage.getItem('token')
             }
@@ -391,7 +391,7 @@ export default {
                 };
             }
 
-            axios.get('/auth/my', {
+            axios.get('/api/auth/my', {
                 headers: {
                     Authorization: 'Bearer' + localStorage.getItem('token')
                 }
@@ -406,7 +406,7 @@ export default {
 
         deletePost(post) {
             this.posts.splice(this.posts.indexOf(post), 1)
-            axios.delete('/auth/posts/' + post.id).then((response) => {
+            axios.delete('/api/auth/posts/' + post.id).then((response) => {
                     console.log(response)
                 }
 

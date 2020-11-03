@@ -45,7 +45,7 @@ export default {
     },
 
     mounted() {
-        axios.get('/auth/admin', {
+        axios.get('/api/auth/admin', {
                 headers: {
                     Authorization: 'Bearer' + localStorage.getItem('token')
                 }
@@ -65,7 +65,7 @@ export default {
     methods: {
 
         deletePost(id) {
-            axios.delete('/auth/posts/' + id).then(
+            axios.delete('/api/auth/posts/' + id).then(
                 console.log("Post Deleted")
             ).catch(error => {
                 console.log(error)

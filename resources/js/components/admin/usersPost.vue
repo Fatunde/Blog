@@ -50,7 +50,7 @@ export default {
         }
     },
     mounted() {
-        axios.get('/auth/admin', {
+        axios.get('/api/auth/admin', {
                 headers: {
                     Authorization: 'Bearer' + localStorage.getItem('token')
                 }
@@ -68,7 +68,7 @@ export default {
 
     },
     created() {
-        axios.get('/auth/posts').then(response => {
+        axios.get('/api/auth/posts').then(response => {
             this.posts = response.data.data
 
         }).catch(error => {
@@ -85,7 +85,7 @@ export default {
 
         deletePost(post) {
             this.posts.splice(this.posts.indexOf(post), 1)
-            axios.delete('/auth/posts/' + post.id).then((response) => {
+            axios.delete('/api/auth/posts/' + post.id).then((response) => {
                     console.log(response)
                 }
 

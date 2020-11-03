@@ -136,7 +136,7 @@ export default {
         },
         fetchUser(page_url) {
             let vm = this;
-            page_url = page_url || '/auth/index'
+            page_url = page_url || '/api/auth/index'
             axios.get(page_url)
                 .then(response => {
                     this.Users = response.data.data;
@@ -155,7 +155,7 @@ export default {
         },
         fetchPost(page_url) {
             let vm = this;
-            page_url = page_url || '/auth/posts'
+            page_url = page_url || '/api/auth/posts'
             axios.get(page_url)
                 .then(response => {
                     this.posts = response.data.data;
@@ -174,7 +174,7 @@ export default {
 
         fetchRead(page_url) {
             let vm = this;
-            page_url = page_url || '/auth/mostRead'
+            page_url = page_url || '/api/auth/mostRead'
             axios.get(page_url)
                 .then(response => {
                     this.reads = response.data.data;

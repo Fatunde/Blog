@@ -70,7 +70,7 @@ export default {
     },
 
     mounted() {
-        axios.get('/auth/admin', {
+        axios.get('/api/auth/admin', {
                 headers: {
                     Authorization: 'Bearer' + localStorage.getItem('token')
                 }
@@ -92,7 +92,7 @@ export default {
     methods: {
         deleteUser(User) {
             this.Users.splice(this.Users.indexOf(User), 1).then(
-                axios.delete('/auth/user' + User.id, {
+                axios.delete('/api/auth/user' + User.id, {
                     headers: {
                         Authorization: 'Bearer' + localStorage.getItem('token')
                     }
@@ -104,7 +104,7 @@ export default {
             )
         },
         disableUser(User) {
-            axios.put('/auth/disable' + User.id, {
+            axios.put('/api/auth/disable' + User.id, {
                 disabled: this.disabled,
 
             }).then(
@@ -114,7 +114,7 @@ export default {
             })
         },
         enableUser(User) {
-            axios.put('/auth/enable' + User.id, {
+            axios.put('/api/auth/enable' + User.id, {
                 enabled: this.enabled,
 
             }).then(

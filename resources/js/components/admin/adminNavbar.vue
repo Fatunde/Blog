@@ -70,7 +70,7 @@ export default {
         }
     },
     mounted() {
-        axios.get('/auth/me', {
+        axios.get('/api/auth/me', {
                 headers: {
                     Authorization: 'Bearer' + localStorage.getItem('token')
                 }
@@ -82,7 +82,7 @@ export default {
                 this.id = this.User.id
 
             }),
-            axios.get('/auth/activated', {
+            axios.get('/api/auth/activated', {
                 headers: {
                     Authorization: 'Bearer' + localStorage.getItem('token')
                 }
