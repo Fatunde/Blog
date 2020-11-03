@@ -292,7 +292,7 @@ export default {
         fetchUser(page_url) {
             let vm = this;
             page_url = page_url || '/auth/index'
-            axios.get(page_url)
+            fetch(page_url)
                 .then(response => {
                     this.Users = response.data.data;
                     console.log(this.Users)
@@ -311,7 +311,7 @@ export default {
         fetchPost(page_url) {
             let vm = this;
             page_url = page_url || '/auth/posts'
-            axios.get(page_url)
+            fetch(page_url)
                 .then(response => {
                     this.posts = response.data.data;
                     vm.makePagination(response.data);
@@ -330,7 +330,7 @@ export default {
         fetchRead(page_url) {
             let vm = this;
             page_url = page_url || '/auth/mostRead'
-            axios.get(page_url)
+            fetch(page_url)
                 .then(response => {
                     this.reads = response.data.data;
                     vm.makePaginator(response.data);
