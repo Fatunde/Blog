@@ -65,7 +65,7 @@ import ForgotPassword from './components/ForgotPassword.vue'
 import ResetPasswordForm from './components/ResetPasswordForm.vue'
 
 
-axios.defaults.baseURL = 'https://localhost:8000/api';
+
 
 const routes = [
     {

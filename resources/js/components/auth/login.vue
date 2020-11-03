@@ -123,7 +123,7 @@ export default {
                 this.emailError = true
             } else {
                 this.loginError = false;
-                this.axios.post('/api/auth/login', {
+                axios.post('/api/auth/login', {
                     email: this.email,
                     password: this.password
                 }).then(response => {
