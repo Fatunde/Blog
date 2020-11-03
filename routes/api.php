@@ -40,6 +40,8 @@ Route::group([
     Route::put('post_count{id}','UserController@post_count');
     Route::post('pay', 'PaymentController@redirectToGateway');
     Route::get('my', 'AuthController@my');
+    Route::post('reset-password', 'AuthController@sendPasswordResetLink');
+    Route::post('reset/password', 'AuthController@callResetPassword');
 
     
     Route::middleware('auth:api')->group(function () {

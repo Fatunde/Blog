@@ -1,10 +1,10 @@
 <template>
 <div>
     <adminNavbar />
-    <div class="container">
-        <div class="row">
+    <div class="">
+        <div class="row ml-lg-5">
 
-            <div class="card-body card mt-3 rounded text-center" v-bind:key="User.id" v-for="User in Users">
+            <div class="card-body card mt-3 rounded text-center col-2 m-5" v-bind:key="User.id" v-for="User in Users">
                 <div class="dropdown text-right">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Options
@@ -14,7 +14,6 @@
                         <div v-if="User.disable == 0 || User.disable == null" class="mt-3"> <a class="btn" style="color: #00008B" @click="disableUser( User)">Disable User</a></div>
                         <div class="mt-3" v-if="User.disable == 1"> <a class="btn" style="color: #00008B" @click="enableUser( User)">Enable User</a></div>
                         <div class="mt-3">
-
                         </div>
                     </div>
                 </div>
@@ -153,7 +152,7 @@ p {
 .card {
     margin: 10px;
     height: 100%;
-    width: 300px;
+    width: 100%;
     margin-top: 50px;
     background-color: white;
     opacity: 80%;

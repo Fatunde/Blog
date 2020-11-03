@@ -11,7 +11,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="alert alert-danger text-center" role="alert" v-if="formError">
+                    <div class="alert alert-danger text-center" id="alert" role="alert" v-if="formError">
                         All fields are required
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -101,6 +101,7 @@ export default {
             emailError: false,
             type: 'password',
             btnText: 'Show Password',
+            removeError: ""
 
         }
 
@@ -115,6 +116,9 @@ export default {
 
             if (!this.email || !this.password) {
                 this.formError = true
+
+                this.removeError = document.getElementById('alert')
+                setTimeout(() => this.removeError.remove(), 2000)
             } else if (!this.validEmail(this.email)) {
                 this.emailError = true
             } else {

@@ -61,6 +61,8 @@ import Paymentsuccess from './components/Paymentsuccess'
 import postView from './components/admin/postView.vue'
 import About from './components/About.vue'
 import Profilepicture from './components/Profilepicture.vue'
+import ForgotPassword from './components/ForgotPassword.vue'
+import ResetPasswordForm from './components/ResetPasswordForm.vue'
 
 
 axios.defaults.baseURL = 'http://localhost:8000/api';
@@ -101,6 +103,22 @@ const routes = [
         component: pendingUsers,
         meta: { requiresAuth: true }
     },
+    { 
+        path: '/reset-password', 
+        name: 'reset-password', 
+        component: ForgotPassword, 
+        meta: { 
+            requiresAuth: false 
+        } 
+      },
+      { 
+        path: '/reset-password/:token', 
+        name: 'reset-password-form', 
+        component: ResetPasswordForm, 
+        meta: { 
+            requiresAuth: false 
+        } 
+      },
     {
         path: '/allpost',
         name: 'Allpost',

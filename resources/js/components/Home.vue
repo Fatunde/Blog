@@ -1,8 +1,8 @@
 <template>
 <div class="all">
     <Navbar />
-    <div class="m-4">
-        <div id="carouselExampleFade" class="carousel slide carousel-fade" style="margin-top: -22px" data-ride="carousel">
+    <div class="">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" style="margin-top: -10px" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="./images/pricing1.jpg" class="d-block w-100 img" alt="..." style="height: 60vh; background-size: contain;">
@@ -68,7 +68,7 @@
 
         </div>
         <div>
-            <section>
+            <section class="m-4">
 
                 <div class="mt-5 ml-lg-5 recent">
                     Most read blogs
@@ -96,7 +96,7 @@
                 </nav>
             </section>
 
-            <section>
+            <section class="m-4">
                 <div class="mt-5 ml-lg-5 recent">
                     Recent blog posts
                 </div>
@@ -127,7 +127,7 @@
                     </ul>
                 </nav>
             </section>
-            <section>
+            <section class="m-4">
                 <div class="mt-5 ml-5 recent">
                     Top blog posters
                 </div>
@@ -154,7 +154,7 @@
             </section><br />
         </div>
         <div class="row mt-5">
-            <div class="col-sm m-2">
+            <div class="col-sm m-5">
                 <h2 style="color: #02022c; font-weight: 700">About Us</h2>
                 <div style="font-size: 20px; color: #686363; font-weight: 100">We love peolple to show love between each other which is the primary goal of this platform and also posting an sharing ideas helps our community grow and makes us understand each other more.
                     We also made it easy for our customers to pour out there mind to the world because everyone matters with each and every of their respective opinion. We also help in content management and make sure our clients don't violate any of our guide lines, we teach, educate, and entertain. We are MANAGEMENT Blog. <br />
@@ -375,7 +375,7 @@ export default {
 }
 
 .footer {
-
+    margin-top: -19px;
     font-weight: 500;
     background-color: #02022c;
     height: 50vh;

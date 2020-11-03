@@ -96,9 +96,9 @@
                             </div>
                             <div class="form-group">
 
-                                <div class="col-md-6">
+                                <div class="">
                                     <input type="file" v-on:change="onImageChange" id="upload" hidden />
-                                    <label class="file text-center" for="upload">Upload Profile Picture</label>
+                                    <label class="file text-center" for="upload"><i class="fas fa-camera"></i></label>
                                     <div class="col-md-3" v-if="image" style="margin: auto;">
                                         <img :src="image" class="img-responsive" height="90" width="90" style="margin-left: 30px;">
                                     </div>
@@ -228,9 +228,9 @@ export default {
     padding: 0.5rem;
     border-radius: 0.3rem;
     cursor: pointer;
-    margin-top: 1rem;
-    width: 250px;
-    margin-left: 1rem;
+    margin-top: 10px;
+    width: 50px;
+    font-size: 20px;
 
 }
 

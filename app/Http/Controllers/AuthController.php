@@ -69,7 +69,7 @@ class AuthController extends Controller
     public function admin()
 
     {     
-        $users = Auth::user()->orderBy('created_at', 'desc')->get();
+        $users = $this->guard()->user()->with('posts')->get();
         if (Gate::allows('isAdmin')) {
 
             return  $users;

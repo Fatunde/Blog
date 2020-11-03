@@ -1,19 +1,18 @@
 <template>
 <div class="">
     <adminNavbar />
-    <div class="row">
-        <div class="card-body card mt-3 rounded col-lg-2" v-bind:key="User.id" v-for="User in Users">
-            <img class="card-img-top" :src='`images/${User.avatar}`' alt="Card image cap" style="height: 300px; border-radius:200px;">
-            <h5>First Name: {{User.name}}</h5>
-            <h5>Last Name: {{User.lastName}}</h5>
-            <p>Email: {{User.email}}</p>
-            <small>Joined on: {{User.created_at}}</small>
-            <p class="mt-4">
-                <button class="btn btn-danger" @click="deleteUser( User)">Reject User</button>
-                <button class="btn btn-success" @click="approveUser( User)">Approve User</button>
-            </p>
 
-        </div>
+    <div class="card-body card mt-3 rounded" v-bind:key="User.id" v-for="User in Users">
+        <img class="card-img-top" :src='`images/${User.avatar}`' alt="Card image cap" style="height: 300px; border-radius:200px;">
+        <h5>First Name: {{User.name}}</h5>
+        <h5>Last Name: {{User.lastName}}</h5>
+        <p>Email: {{User.email}}</p>
+        <small>Joined on: {{User.created_at}}</small>
+        <p class="mt-4">
+            <button class="btn btn-danger" @click="deleteUser( User)">Reject User</button>
+            <button class="btn btn-success" @click="approveUser( User)">Approve User</button>
+        </p>
+
     </div>
 
 </div>
@@ -50,8 +49,7 @@ export default {
             },
             post_id: "",
             pagination: {},
-            edit: false,
-            disable: true,
+            edit: false
         }
 
     },
@@ -74,24 +72,22 @@ export default {
 
     methods: {
         deleteUser(User) {
-            this.Users.splice(this.Users.indexOf(User), 1).then(
-                axios.put('/auth/disable/' + User.id, {
-                    disabled: this.disabled,
-
-                }).then(
-                    console.log("User Deleted")
-                ).catch(error => {
-                    console.log(error)
-                }))
+            axios.delete('/auth/user/' + User.id, {
+                headers: {
+                    Authorization: 'Bearer' + localStorage.getItem('token')
+                }
+            }).then(
+                console.log("User Deleted")
+            ).catch(error => {
+                console.log(error)
+            })
         },
-
         approveUser(User) {
-            this.Users.splice(this.Users.indexOf(User), 1).then(
-                axios.put('auth/activate' + User.id, {
-                    activated: this.activated
-                }).then(response => {
-                    console.log(response)
-                }))
+            axios.put('auth/activate' + User.id, {
+                activated: this.activated
+            }).then(response => {
+                console.log(response)
+            })
         }
     },
 
@@ -113,6 +109,7 @@ p {
 }
 
 .card {
+    margin: 10px;
     height: 100%;
     width: 350px;
     margin-top: 50px;
