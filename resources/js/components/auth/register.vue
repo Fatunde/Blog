@@ -187,7 +187,7 @@ export default {
                 this.emailError = true
             } else {
 
-                axios.post('http://127.0.0.1:8000/api/auth/register', {
+                this.axios.post('/api/auth/register', {
                         name: this.name,
                         lastName: this.lastName,
                         email: this.email,
