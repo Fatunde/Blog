@@ -6,6 +6,9 @@ use Closure;
 
 class VerifyCsrfToken
 {
+    protected $except = [
+        'api/*'
+    ];
     /**
      * Handle an incoming request.
      *
