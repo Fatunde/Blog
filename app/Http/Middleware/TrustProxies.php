@@ -2,9 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use Fideloper\Proxy\TrustProxies as Middleware;
+use Illuminate\Http\Request;
 use Closure;
 
-class TrustProxies
+class TrustProxies extends Middleware
 {
     /**
      * Handle an incoming request.
@@ -13,8 +15,7 @@ class TrustProxies
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
-    {
-        return $next($request);
-    }
+ protected $proxies;
+
+ protected $headers = Request::HEADER_X_FORWARDED_ALL;
 }
