@@ -52,15 +52,7 @@ class AuthController extends Controller
      */
     public function me()
     {     
-        $user = Auth::user();
-        dd(Auth::user());
-        $posts = Auth::user()->posts()->orderBy('created_at', 'desc')->paginate(2);
-        $viewposts = Auth::user()->posts()->orderBy('view', 'desc')->paginate(4);
-        $allposts = Auth::user()->posts()->orderBy('created_at', 'desc')->get();
-        
-        
-       $userdata = 
-           [$user, $posts, $viewposts, $allposts];
+        $userdata = $this->guard()->user();
        
        return $userdata;
     }

@@ -12,14 +12,10 @@ class Authenticate extends Middleware
      * @param  \Illuminate\Http\Request  $request
      * @return string|null
      */
-   
-    
-        protected function authenticate($request, array $guards)
-        {
-            try {
-                parent::authenticate($request, $guards);
-            } catch (AuthenticationException $e) {
-                throw new UnauthorizedHttpException('JWTAuth', $e->getMessage());
-            }
+  /*  protected function redirectTo($request)
+    {
+        if (! $request->expectsJson()) {
+            return route('login');
         }
+    }*/
 }
