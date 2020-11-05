@@ -1,10 +1,10 @@
 <template>
 <div>
     <Navbar />
-    <div class="container bg-transparent">
+    <div class="bg-transparent">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card w-lg-25%">
+                <div class="card w-lg-50%">
                     <div class="card-body w-lg-25%">
                         <div class="text-center about">About Us</div>
                         <div>
@@ -18,7 +18,7 @@
                         <p class="text-center"><i class="fas fa-envelope mr-2" style="font-size: 25px"></i> Blog@blog.com</p>
                         <p class="text-center"><i class="fab fa-facebook mr-2" style="font-size: 25px"></i> @Blog.facebook.com </p>
                         <p class="text-center"><i class="fas fa-phone-square-alt mr-2" style="font-size: 25px"></i> 08011122233</p>
-
+                        <router-link class="button" style="text-decoration: none;" to="/register">Join Us</router-link>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@ input [type="text"]:focus {
 }
 
 .card {
-    width: 400px;
+    width: 100%;
     margin: auto;
     margin-top: 50px;
     background-color: white;

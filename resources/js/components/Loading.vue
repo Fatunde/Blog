@@ -32,8 +32,9 @@ export default {
         }).then(response => {
 
             // console.log(localStorage.getItem('token'))
-            localStorage.setItem('User', JSON.stringify(response.data[0].original))
-            localStorage.setItem('posts', this.posts = JSON.stringify(response.data[0].original.posts))
+            console.log(response)
+            localStorage.setItem('User', JSON.stringify(response.data[0]))
+            localStorage.setItem('posts', this.posts = JSON.stringify(response.data[1]))
             this.User = JSON.parse(localStorage.getItem('User'))
             console.log(this.User.role)
             if (this.User.role == "admin") {

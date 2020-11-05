@@ -2,10 +2,10 @@
 <div class="all">
     <Navbar />
     <div class="">
-        <div id="carouselExampleFade" class="carousel slide carousel-fade" style="margin-top: -10px" data-ride="carousel">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" style="" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="./images/pricing1.jpg" class="d-block w-100 img" alt="..." style="height: 60vh; background-size: contain;">
+                    <img src="./images/pricing1.jpg" class="d-block w-100 img" alt="..." style="height: 80vh; background-size: contain;">
                     <div class="carousel-caption cappy mb-lg-5">
 
                         <h1 class="display-4 mb-lg-5" style="color: #02022c; font-weight: 900;">Welcome</h1>
@@ -13,14 +13,14 @@
 
                         <p class="lead mb-lg-5">Creating of post is made easy with just little price</p>
 
-                        <router-link class="button btn mb-lg-5" to="/about">
+                        <router-link class="button btn mb-lg-5" to="/register">
                             <div class="mt-3">Click here to get started</div>
                         </router-link>
 
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="./images/pricing2.jpg" class="d-block w-100 img" alt="..." style="height: 60vh">
+                    <img src="./images/pricing2.jpg" class="d-block w-100 img" alt="..." style="height: 80vh">
                     <div class="carousel-caption cappy mb-lg-5">
                         <div>
                             <h1 class="display-4 mb-lg-5" style="color: #02022c; font-weight: 900;">Welcome</h1>
@@ -28,14 +28,14 @@
 
                             <p class="lead mb-lg-5">Creating of post is made easy with just little price</p>
 
-                            <router-link class="button btn mb-lg-5" to="/about">
+                            <router-link class="button btn mb-lg-5" to="/register">
                                 <div class="mt-3">Click here to get started</div>
                             </router-link>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="./images/pricing3.jpg" class="d-block w-100 img" alt="..." style="height: 60vh">
+                    <img src="./images/pricing3.jpg" class="d-block w-100 img" alt="..." style="height: 80vh">
                     <div class="carousel-caption cappy mb-lg-5">
                         <div>
                             <h1 class="display-4 mb-lg-5" style="color: #02022c; font-weight: 900;">Welcome</h1>
@@ -43,14 +43,14 @@
 
                             <p class="lead mb-lg-5">Creating of post is made easy with just little price</p>
 
-                            <router-link class="button btn mb-lg-5" to="/about">
+                            <router-link class="button btn mb-lg-5" to="/register">
                                 <div class="mt-3">Click here to get started</div>
                             </router-link>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="./images/bg.jpeg" class="d-block w-100 img" alt="..." style="height: 60vh">
+                    <img src="./images/bg.jpeg" class="d-block w-100 img" alt="..." style="height: 80vh">
                     <div class="carousel-caption mb-lg-5 cappy">
                         <div>
                             <h1 class="display-4 mb-lg-5" style="color: #02022c; font-weight: 900;">Welcome</h1>
@@ -58,7 +58,7 @@
 
                             <p class="lead mb-lg-5">Creating of post is made easy with just little price</p>
 
-                            <router-link class="button btn mb-lg-5" to="/about">
+                            <router-link class="button btn mb-lg-5" to="/register">
                                 <div class="mt-3">Click here to get started</div>
                             </router-link>
                         </div>
@@ -213,23 +213,23 @@
                     Contact Us
                 </div>
 
-                <div class="row text-white mt-5 ">
-                    <div class="col-sm"><i class="fab fa-facebook mr-2" style="font-size: 25px"></i>
+                <div class="text-white mt-5 ">
+                    <div class="mt-2"><i class="fab fa-facebook" style="font-size: 25px"></i>
                         @Blog.facebook.com
                     </div>
-                    <div class="col-sm"><i class="fab fa-instagram mr-2" style="font-size: 25px"></i>
+                    <div class="mt-2"><i class="fab fa-instagram" style="font-size: 25px"></i>
                         @Blog
                     </div>
-                    <div class="col-sm"><i class="fas fa-envelope mr-2" style="font-size: 25px"></i>
+                    <div class="mt-2"><i class="fas fa-envelope" style="font-size: 25px"></i>
                         Blog@blog.com
                     </div>
-                    <div class="col-sm"><i class="fab fa-twitter-square mr-2" style="font-size: 25px"></i>
+                    <div class="mt-2"><i class="fab fa-twitter-square" style="font-size: 25px"></i>
                         @Blog
                     </div>
-                    <div class="col-sm"><i class="fas fa-phone-square-alt mr-2" style="font-size: 25px"></i>
+                    <div class="mt-2"><i class="fas fa-phone-square-alt" style="font-size: 25px"></i>
                         08011122233
                     </div>
-                    <div class="col-sm"><i class="fas fa-address-book mr-2" aria-hidden="true" style="font-size: 25px"></i>
+                    <div class="mt-2"><i class="fas fa-address-book" aria-hidden="true" style="font-size: 25px"></i>
                         No 3, Blog Road, Lagos
                     </div>
                 </div>
@@ -394,7 +394,7 @@ export default {
     margin-top: -20px;
     background-image: url('./images/bg.jpeg');
     background-size: cover;
-    height: 70vh;
+    height: 80vh;
 
 }
 

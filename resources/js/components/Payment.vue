@@ -50,9 +50,9 @@ export default {
             })
             .then(response => {
 
-                this.User = response.data[0].original
-                this.email = response.data[0].original.email
-                this.posts = response.data[0].original.posts
+                this.User = response.data[0]
+                this.email = response.data[0].email
+                this.posts = response.data[0].posts
 
                 this.id = this.User.id
                 console.log(this.User)

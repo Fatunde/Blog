@@ -347,7 +347,7 @@ export default {
                 title: "",
                 body: ""
             },
-            postview: {},
+            postviews: {},
 
             post_id: "",
             pagination: {},
@@ -371,15 +371,16 @@ export default {
                 Authorization: 'Bearer' + localStorage.getItem('token')
             }
         }).then(response => {
-
-            console.log(response.data[3])
-            if (response.status === 401) {
+            if (response.status == 401) {
                 this.$router.push('/login')
             } else {
                 this.loaded = true
-                localStorage.setItem('User', JSON.stringify(response.data[0].original))
+                localStorage.setItem('User', JSON.stringify(response.data[0]))
+                console.log(response.data)
                 localStorage.setItem('posts', this.posts = JSON.stringify(response.data[1].data))
-                localStorage.setItem('postview', this.posts = JSON.stringify(response.data[2].data))
+                // console.log(response.data[1]).data
+                localStorage.setItem('postview', this.postviews = JSON.stringify(response.data[2].data))
+                localStorage.setItem('allpost', this.allpost = JSON.stringify(response.data[3]))
                 this.User = JSON.parse(localStorage.getItem('User'))
                 this.posts = JSON.parse(localStorage.getItem('posts'))
                 this.postviews = JSON.parse(localStorage.getItem('postview'))

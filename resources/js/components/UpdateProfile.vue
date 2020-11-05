@@ -1,7 +1,7 @@
 <template>
 <div>
 
-    <div class="container">
+    <div class="">
         <div>
             <DashboardNavbar />
         </div>
@@ -70,20 +70,9 @@ export default {
     },
 
     created() {
-        axios.get('/auth/me', {
-            headers: {
-                Authorization: 'Bearer' + localStorage.getItem('token')
-            }
-        }).then(response => {
 
-            axios.get('/api/auth/getuser' + response.data[0].original.id).then((response) => {
-                this.User = response.data
-                this.id = this.User.id
-                console.log(this.User)
-            }).catch(error => {
-                console.log(error)
-            })
-        })
+        this.User = JSON.parse(localStorage.getItem('User'))
+        this.id = this.User.id
 
     },
 

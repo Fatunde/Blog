@@ -94,7 +94,7 @@
                                     <input id="password-confirm" type="password" class=" input form-control border text-muted" style=" font-weight:100" name="password_confirmation" required autocomplete="new-password" placeholder="Re-enter the password" v-model="password_confirmation">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <!--          <div class="form-group">
 
                                 <div class="">
                                     <input type="file" v-on:change="onImageChange" id="upload" hidden />
@@ -103,7 +103,7 @@
                                         <img :src="image" class="img-responsive" height="90" width="90" style="margin-left: 30px;">
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
 
                             <button type="submit" class="button  text-white" @click="handleSubmit">
                                 <p> Sign Up </p>

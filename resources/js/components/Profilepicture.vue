@@ -54,7 +54,7 @@ export default {
                 }
             })
             .then(response => {
-                this.User = response.data[0].original
+                this.User = response.data[0]
                 this.posts = response.data[0].original.posts
 
                 console.log(this.User)

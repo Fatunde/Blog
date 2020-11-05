@@ -111,10 +111,10 @@ export default {
                 }
             })
             .then(response => {
-                this.User = response.data[0].original
-                this.posts = response.data[0].original.posts
-                this.paid = response.data[0].original.paid
-                this.activated = response.data[0].original.activated
+                this.User = response.data[0]
+                this.posts = response.data[0].posts
+                this.paid = response.data[0].paid
+                this.activated = response.data[0].activated
                 this.id = this.User.id
 
                 this.loaded = true
