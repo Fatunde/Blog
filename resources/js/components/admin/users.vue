@@ -4,7 +4,7 @@
     <div class="">
         <div class="row ml-lg-5">
 
-            <div class="card-body card mt-3 rounded text-center col-2 m-5" v-bind:key="User.id" v-for="User in Users">
+            <div class="card-body card mt-3 rounded text-center col-lg-2 col-sm m-5" v-bind:key="User.id" v-for="User in Users">
                 <div class="dropdown text-right">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Options

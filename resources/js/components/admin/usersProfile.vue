@@ -2,8 +2,8 @@
 <div>
     <adminNavbar />
     <div class="row">
+        <div class="text-center no-posts" v-if="noPost">User has no posts</div>
         <div class="card-body card mt-3 rounded col-lg-2" v-bind:key="post.id" v-for="post in posts">
-
             <div class="row">
                 <div class="col">
                     <h5>{{post.title}}</h5>
@@ -46,11 +46,12 @@ export default {
                 body: "",
                 updated_at: "",
             },
+            noPost: false
 
         }
     },
-    mounted() {
-        let id = this.$route.params.id;
+    created() {
+
         axios.get('/api/auth/admin', {
                 headers: {
                     Authorization: 'Bearer' + localStorage.getItem('token')
@@ -63,18 +64,18 @@ export default {
                 // console.log(this.posts)
 
             })
-
-    },
-    created() {
         let id = this.$route.params.id;
         axios.get('/api/auth/userPost' + id).then(response => {
             this.posts = response.data
-            console.log(this.posts)
+            if (this.posts.length == 0) {
+                return this.noPost = true
+            }
         }).catch(error => {
             this.loginError = true
         })
 
     },
+
     methods: {
         deletePost(post) {
             this.posts.splice(this.posts.indexOf(post), 1)
@@ -96,6 +97,13 @@ export default {
 </script>
 
 <style scoped>
+.no-posts {
+    font-size: 25px;
+    font-weight: 700;
+    color: #00008B;
+    margin: auto;
+}
+
 h3 {
     margin: auto;
     color: #00008B;

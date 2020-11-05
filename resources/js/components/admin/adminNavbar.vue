@@ -15,10 +15,10 @@
                 <router-link to="/users" class="nav-link">
                     <p>Manage Users</p>
                 </router-link>
-                <router-link to="/userspost" class="nav-link">
+                <router-link to="/userspost" class="nav-link ml-lg-3">
                     <p>Posts</p>
                 </router-link>
-                <div class="row ml-1">
+                <div class="row ml-lg-3">
                     <router-link to="/pendingusers" class="nav-link">
                         <p>Pending users</p>
                     </router-link>
@@ -91,7 +91,6 @@ export default {
 
                 this.Pending = response.data
                 this.Pending_users = this.Pending.length
-                console.log(this.Pending_users)
 
             })
 

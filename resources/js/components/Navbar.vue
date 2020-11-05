@@ -1,27 +1,27 @@
 <template>
 <div>
-    <nav class="navbar navbar-expand-md navbar-light shadow-sm width: 100%">
+    <nav class="navbar navbar-expand-md navbar-default width: 100% fixed-top">
 
         <a class="navbar-brand ml-lg-5">
-            <h3 style="color: #00008B; font-weight: 700;">Management</h3>
+            <h3 style="font-weight: 700;" class="nav-link">Management</h3>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <i class="fas fa-bars" style="color: #02022c;"></i>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto" style="color: #00008B">
-                <li class="nav-item ml-lg-5"><a class="nav-link" style="color: #00008B" href="/">
+            <ul class="navbar-nav mr-auto" style="">
+                <li class="nav-item ml-lg-5"><a class="nav-link" style="" href="/">
                         Home
                     </a></li>
                 <li class="nav-item ml-lg-5">
-                    <router-link to="/about" class="nav-link" style="color: #00008B; text-decoration:none;">
+                    <router-link to="/about" class="nav-link" style="text-decoration:none;">
                         About Us
                     </router-link>
                 </li>
                 <li class="nav-item ml-lg-5">
-                    <router-link to="/index" class="nav-link" style="color: #00008B; text-decoration:none;">
+                    <router-link to="/index" class="nav-link" style="text-decoration:none;">
                         Blog
                     </router-link>
                 </li>
@@ -31,12 +31,12 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 <li class="nav-item mr-lg-5">
-                    <router-link to="/login" class="nav-link " style="color: #00008B">
+                    <router-link to="/login" class="nav-link " style="">
                         Login
                     </router-link>
                 </li>
                 <li class="nav-item mr-lg-5">
-                    <router-link to="/register" class="nav-link" style="color: #00008B">
+                    <router-link to="/register" class="nav-link" style="">
                         Register
                     </router-link>
                 </li>
@@ -67,15 +67,32 @@ export default {
         }
     },
 }
+$(window).scroll(function () {
+    $('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
+});
 </script>
 
 <style scoped>
-nav {
+.navbar-default {
+    transition: 500ms ease;
+    background: transparent;
+}
+
+.navbar-default.scrolled {
+    background: rgb(248, 244, 245);
     color: #00008B;
 }
 
+nav {
+    background-color: rgb(248, 244, 245);
+}
+
+li {
+    font-weight: 700;
+}
+
 .nav-link {
-    color: #00008B;
+    color: #02022c;
 }
 
 li {

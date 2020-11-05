@@ -68,7 +68,11 @@ export default {
 
     },
     created() {
-        axios.get('/api/auth/posts').then(response => {
+        axios.get('/api/auth/indexes', {
+            headers: {
+                Authorization: 'Bearer' + localStorage.getItem('token')
+            }
+        }).then(response => {
             this.posts = response.data.data
 
         }).catch(error => {

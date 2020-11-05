@@ -69,7 +69,7 @@ class AuthController extends Controller
     public function admin()
 
     {     
-        $users = $this->guard()->user()->with('posts')->get();
+        $users = Auth::user()->with('posts')->orderBy('created_at', 'desc')->get();
         if (Gate::allows('isAdmin')) {
 
             return  $users;
@@ -110,6 +110,25 @@ class AuthController extends Controller
     
         }
         
+    }
+    
+    public function indexes()
+    {
+
+        
+        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
+        if (Gate::allows('isAdmin')) {
+
+            return  $posts;
+    
+        } else {
+    
+            return 'You are not Admin';
+    
+        }
+        
+
+      
     }
 
     public function activate(Request $request, $id)

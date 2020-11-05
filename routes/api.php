@@ -28,6 +28,7 @@ Route::group([
     Route::get('userPost{id}', 'PostsController@userPost');
     Route::delete('user{id}', 'AuthController@destroy');
     Route::resource('posts', 'PostsController');
+    Route::get('indexes', 'AuthController@indexes');
     Route::get('index', 'PostsController@index');
     Route::get('mostView{id}', 'PostsController@mostView');
    // Route::get('user', 'AuthController@user');
