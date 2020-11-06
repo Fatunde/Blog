@@ -17,7 +17,7 @@ class UserController extends Controller
     public function index()
 
     {  
-        $users = User::orderBy('post_counts', 'desc')->paginate(6);
+        $users = User::orderBy('post_counts', 'desc')->paginate(4);
         
         return  $users;
     }

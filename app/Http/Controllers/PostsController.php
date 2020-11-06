@@ -23,7 +23,7 @@ class PostsController extends Controller
     public function index()
     {
         
-        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(4);
         
 
         return  $posts;
@@ -32,7 +32,7 @@ class PostsController extends Controller
     public function mostRead()
     {
         
-        $posts = Post::orderBy('view', 'desc')->paginate(5);
+        $posts = Post::orderBy('view', 'desc')->paginate(4);
         
 
         return  $posts;
