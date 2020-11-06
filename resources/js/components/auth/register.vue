@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="all">
 
     <div class="container">
 
@@ -94,16 +94,6 @@
                                     <input id="password-confirm" type="password" class=" input form-control border text-muted" style=" font-weight:100" name="password_confirmation" required autocomplete="new-password" placeholder="Re-enter the password" v-model="password_confirmation">
                                 </div>
                             </div>
-                            <!--          <div class="form-group">
-
-                                <div class="">
-                                    <input type="file" v-on:change="onImageChange" id="upload" hidden />
-                                    <label class="file text-center" for="upload"><i class="fas fa-camera"></i></label>
-                                    <div class="col-md-3" v-if="image" style="margin: auto;">
-                                        <img :src="image" class="img-responsive" height="90" width="90" style="margin-left: 30px;">
-                                    </div>
-                                </div>
-                            </div>-->
 
                             <button type="submit" class="button  text-white" @click="handleSubmit">
                                 <p> Sign Up </p>
@@ -111,11 +101,11 @@
                             <div class="form-group row mb-0">
                                 <div class="col">
                                     <div class="mt-5">
-                                        <router-link to="/" class="mt-5" style="text-decoration: none; color: #00008B">Home Page</router-link>
+                                        <router-link to="/" class="mt-5" style="text-decoration: none; color: #00bfd8">Home Page</router-link>
                                     </div>
                                 </div>
                                 <div class="col-auto mt-5">
-                                    <router-link to="/login" class=" my-2 my-sm-0 " style="text-decoration:none; margin-right-auto; color: #00008B">
+                                    <router-link to="/login" class=" my-2 my-sm-0 " style="text-decoration:none; margin-right-auto; color: #00bfd8">
                                         <p>Log In</p>
                                     </router-link>
                                 </div>
@@ -222,8 +212,13 @@ export default {
 </script>
 
 <style scoped>
+.all {
+    background: url('../images/contact-background.jpg');
+    height: 100vh;
+}
+
 .file {
-    background-color: #00008B;
+    background-color: #00bfd8;
     color: white;
     padding: 0.5rem;
     border-radius: 0.3rem;
@@ -237,7 +232,7 @@ export default {
 form {
     font-size: 18px;
     font-weight: bold;
-    color: #00008B;
+    color: #00bfd8;
 }
 
 .button {
@@ -246,7 +241,7 @@ form {
     width: 318px;
     height: 60px;
     margin-top: 20px;
-    background-color: #00008B;
+    background-color: #00bfd8;
     border: none !important;
     outline: none !important;
     border-radius: 5px;
@@ -264,12 +259,12 @@ form {
 }
 
 .button p:hover {
-    color: #00008B
+    color: #00bfd8
 }
 
 h3 {
     margin: auto;
-    color: #00008B;
+    color: #00bfd8;
     font-weight: 700;
 }
 

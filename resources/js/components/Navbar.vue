@@ -6,7 +6,7 @@
             <h3 style="font-weight: 700;" class="nav-link">Management</h3>
         </a>
         <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-            <i class="fas fa-bars" style="color: #02022c;"></i>
+            <i class="fas fa-bars" style="color: #00bfd8;"></i>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -15,11 +15,6 @@
                 <li class="nav-item ml-lg-5"><a class="nav-link" style="" href="/">
                         Home
                     </a></li>
-                <li class="nav-item ml-lg-5">
-                    <router-link to="/about" class="nav-link" style="text-decoration:none;">
-                        About Us
-                    </router-link>
-                </li>
                 <li class="nav-item ml-lg-5">
                     <router-link to="/index" class="nav-link" style="text-decoration:none;">
                         Blog
@@ -30,12 +25,12 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
-                <li class="nav-item mr-lg-5">
-                    <router-link to="/login" class="nav-link " style="">
+                <li class="nav-item-aut mr-lg-5">
+                    <router-link to="/login" class="nav-link" style="">
                         Login
                     </router-link>
                 </li>
-                <li class="nav-item mr-lg-5">
+                <li class="nav-item-aut mr-lg-5">
                     <router-link to="/register" class="nav-link" style="">
                         Register
                     </router-link>
@@ -69,6 +64,7 @@ export default {
 }
 $(window).scroll(function () {
     $('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
+    $('li').toggleClass('scrolling', $(this).scrollTop() > 50);
 });
 </script>
 
@@ -79,12 +75,11 @@ $(window).scroll(function () {
 }
 
 .navbar-default.scrolled {
-    background: rgb(248, 244, 245);
-    color: #00008B;
+    background: #fff;
 }
 
 nav {
-    background-color: rgb(248, 244, 245);
+    background-color: #fff;
 }
 
 li {
@@ -92,7 +87,15 @@ li {
 }
 
 .nav-link {
-    color: #02022c;
+    color: #00bfd8;
+}
+
+.nav-item-aut {
+    color: #fff;
+}
+
+.nav-item-aut.scrolling {
+    color: #00bfd8
 }
 
 li {

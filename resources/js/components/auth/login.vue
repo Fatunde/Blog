@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="all">
 
     <div class="container bg-transparent">
         <div class="row justify-content-center">
@@ -47,7 +47,7 @@
 
                                 <div class="input group ">
                                     <input :type="type" class="input form-control border text-muted" name="password" id="password" placeholder="Enter the password" v-model="password">
-                                    <a class="btn" @click="showPassword" style="color:  #00008B; font-weight: bold; font-size: 13px; margin-left: -12px;">{{btnText}}</a>
+                                    <a class="btn" @click="showPassword" style="color:  #00bfd8; font-weight: bold; font-size: 13px; margin-left: -12px;">{{btnText}}</a>
                                 </div>
                             </div>
                             <button type="submit" class="button text-white" @click="submitLogin">
@@ -56,11 +56,11 @@
                             <div class="form-group row mb-0">
                                 <div class="col">
                                     <div class="mt-5">
-                                        <router-link to="/" class="mt-5" style="text-decoration: none; color: #00008B">Home</router-link>
+                                        <router-link to="/" class="mt-5" style="text-decoration: none; color: #00bfd8">Home</router-link>
                                     </div>
                                 </div>
                                 <div class="col-auto mt-5">
-                                    <router-link to="/register" class=" my-2 my-sm-0 " style="text-decoration:none; margin-right-auto; color: #00008B">
+                                    <router-link to="/register" class=" my-2 my-sm-0 " style="text-decoration:none; margin-right-auto; color: #00bfd8">
                                         <p>Sign Up</p>
                                     </router-link>
                                 </div>
@@ -153,6 +153,11 @@ export default {
 </script>
 
 <style scoped>
+.all {
+    background: url('../images/contact-background.jpg');
+    height: 100vh;
+}
+
 .input-group i {
     cursor: pointer;
 }
@@ -160,7 +165,7 @@ export default {
 form {
     font-size: 18px;
     font-weight: bold;
-    color: #00008B;
+    color: #00bfd8;
 }
 
 .button {
@@ -169,7 +174,7 @@ form {
     width: 315px;
     height: 60px;
     margin-top: 20px;
-    background-color: #00008B;
+    background-color: #00bfd8;
     border: none !important;
     outline: none !important;
     border-radius: 5px;
@@ -187,12 +192,12 @@ form {
 }
 
 .button p:hover {
-    color: #00008B
+    color: #00bfd8
 }
 
 h3 {
     margin: auto;
-    color: #00008B;
+    color: #00bfd8;
     font-weight: 700;
 }
 
