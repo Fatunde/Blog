@@ -48,6 +48,9 @@ Route::group([
     
 
 });
+Route::group(['middleware' => ['jwt.verify'], 'prefix' => 'auth'], function() {
+    Route::get('me', 'AuthController@me');
+});
 
 
 /*

@@ -164,6 +164,7 @@ return [
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Unicodeveloper\Paystack\PaystackServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
 
         /*
          * Package Service Providers...
