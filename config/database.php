@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
-//$DATABASE_URL=parse_url('postgres://efbfcvgwocuwfy:22273b4f644203f184ee57e9d475d47e94ae1725381870c0e22935c18363b0b1@ec2-107-22-241-205.compute-1.amazonaws.com:5432/d2ucadepnm5mh6');
+$DATABASE_URL=parse_url('postgres://tsfplyujtwtioq:b34cea1a145ad74884ff4cd4fa9e26d6e46ee2c92bbec02bd1bf438c4ecded0b@ec2-54-82-208-124.compute-1.amazonaws.com:5432/d4k5gv7blmd60p');
 
 return [
     
@@ -17,7 +17,7 @@ return [
     |
     */
 
-    'default' => 'mysql',
+    'default' => 'pgsql',
 
     /*
     |--------------------------------------------------------------------------
@@ -48,11 +48,11 @@ return [
        'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => 'db4free.net',
-            'port' => '3306',
-            'database' => 'blog_management',
-            'username' => 'blog_management',
-            'password' => 'bibilanky',
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -67,11 +67,11 @@ return [
 
         'pgsql' => [
            'driver' => 'pgsql',
-            'host' => ["host"],
-            'port' => ["port"],
-            'database' => 'none',
-            'username' => ["user"],
-            'password' => ["pass"],
+            'host' => $DATABASE_URL["host"],
+            'port' => $DATABASE_URL["port"],
+            'database' => ltrim($DATABASE_URL["path"], "/"),
+            'username' => $DATABASE_URL["user"],
+            'password' => $DATABASE_URL["pass"],
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,

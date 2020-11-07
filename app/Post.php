@@ -7,7 +7,7 @@ use Carbon\Carbon;
 
 class Post extends Model
 {
-    // Table
+    // Table php -S 127.0.0.1:8000 -t public/
     protected $table = 'posts';
     public $primaryKey = 'id';
     public $timestamps = true;
