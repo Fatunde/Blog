@@ -147,16 +147,16 @@
     </div>
     <div class="basic-1 mt-5">
         <div class="container">
-            <h1 class="text-center mb-5" style="font-weight: 700; color: #00bfd8"><span>About Us</span></h1>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="image-container">
                         <img class="img-fluid" src="./images/details-2-office-team-work.svg" alt="alternative">
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 about-text">
+                    <h1 class="ml-lg-3 mb-5" style="font-weight: 700; color: #00bfd8"><span>About Us</span></h1>
                     <div class="text-container">
-                        <h2 style="color: #00bfd8; font-weight: 700">Working as a team is what has been holding us and making us creative</h2>
+                        <h5 style="color: #00bfd8; font-weight: 700">Working as a team is what has been holding us and making us creative</h5>
                         <p>Our platform is used to create and share posts that are memorable to our customers. Our primary goal is content creation</p>
                         <button class="btn-solid-reg popup-with-move-anim" style="" href="#details-lightbox-1">Join</button>
                     </div>
@@ -167,17 +167,16 @@
     <div id="contact" class="form-2">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <h2 style="color: #00bfd8; font-weight: 700">Contact Information</h2>
-                    <ul class="list-unstyled li-space-lg">
-                        <li class="address">Don't hesitate to give us a call or send us a contact form message</li>
-                        <li><i class="fas fa-map-marker-alt"></i>75b Olonode Street, Off Spencer St, Alagomeji-Yaba, Lagos</li>
-                        <li><i class="fas fa-phone"></i><a class="turquoise">+234 806 565 467 1</a></li>
-                        <li><i class="fas fa-envelope"></i><a class="turquoise">@blog-nig.com</a></li>
-                    </ul>
+                <div class="col-lg-6 contact-text">
+                    <h1 class="text-center" style="color: #00bfd8; font-weight: 700">Contact Us</h1>
+                    <div class="li-space-lg">
+                        <p class="address">Don't hesitate to give us a call or send us a contact form message</p>
+                        <p><i class="fas fa-map-marker-alt mr-1"></i>75b Olonode Street, Off Spencer St, Alagomeji-Yaba, Lagos</p>
+                        <p><i class="fas fa-phone mr-1"></i><a class="turquoise">+234 806 565 467 1</a></p>
+                        <p><i class="fas fa-envelope mr-1"></i><a class="turquoise">@blog-nig.com</a></p>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
+
                 <div class="col-lg-6">
                     <div class="map-responsive">
                         <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=CREDPAL,%20Spencer%20Street,%20Lagos,%20Nigeria+(My%20Blog)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" allowfullscreen></iframe>
@@ -846,6 +845,15 @@ h3 {
         display: block;
         margin-right: 0;
         font-weight: 600
+    }
+
+    .about-text {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .contact-text {
+        text-align: center;
     }
 }
 

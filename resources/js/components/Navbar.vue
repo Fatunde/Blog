@@ -101,4 +101,11 @@ li {
 li {
     font-weight: 700;
 }
+
+@media screen and (max-width: 600px) {
+    .navbar-default {
+        background: white;
+    }
+
+}
 </style>
