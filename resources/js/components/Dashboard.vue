@@ -49,50 +49,9 @@
                 </div>
             </div>
         </div>
-        <div class="text-center" style="font-weight: 700" v-else-if=" User.paid == 1 && User.activated == null">
-            <p class="checks">You have no post and you can't create any for now until your account has been approved, check your account status</p>
-            <div class="card-mid-pending mr-5 mt-5 row">
-                <div class=" card-profile mt-sm-2 border m-4 mr-1">
-                    <div class="">
-                        <div class="m-4 row">
-                            <router-link class="" :to="{name:'Profile'}" style="color:#02022c; text-decoration: none;">
-                                <div class="row">
-                                    <div class="col">
-                                        <img v-if="User.avatar" class="card-img-top border" :src='`images/${User.avatar}`' alt="Card image cap" style="height: 150px; width: 150px; border-radius: 10px">
-                                        <i v-else-if="User.avatar == null" class="fas fa-user mt-3 text-center" style="font-size: 165px; color: #686363"></i>
-                                    </div>
-                                    <div class="mt-2">
-                                        <div class="m-2">
-                                            <h5 class="card-title mt-2" style=" font-weight: 700">{{User.name}} {{User.lastName}}</h5>
-                                        </div>
-                                        <div class="m-2">
-                                            <p class="card-title mt-2" style=" font-weight: 700"> {{User.email}} </p>
-                                        </div>
-                                        <div class="m-2">
-                                            <p v-if="User.post_counts > 1" class="card-title mt-2" style=" font-weight: 700">You have {{User.post_counts}} posts</p>
-                                            <p v-if="User.post_counts == 1" class="card-title mt-2" style=" font-weight: 700">You have {{User.post_counts}} post</p>
-                                            <p v-if="User.post_counts == 0" class="card-title mt-2" style=" font-weight: 700">You have no post</p>
-                                        </div>
-                                        <div class="m-2 mt-2"> <small class="">Joined on {{User.created_at}}</small></div>
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                    </div>
-                </div>
-                <div class=" card-profile mt-sm-2 border m-4">
-                    <div class=" mt-2 ml-4">
-                        <div>
-                            <div class="row"> Account Status: <div class="text-warning ml-2">Pending</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="text-center" style="font-weight: 700" v-else-if="posts.length <=0 && User.paid == null">
-            <p class="checks">You have no post and you can't create any post until you pay 1000Naira
-                Click this button below to make payment</p> <br />
+        <div class="text-center" style="font-weight: 700" v-else-if=" User.paid == null">
+            <p class="checks"> You have no post and you can't create any post until you pay 1000Naira
+                Click this button below to make payment </p>
             <router-link class="button btn " to="/payment">
                 <h4 class="mt-2">Pay</h4>
             </router-link>
@@ -128,7 +87,49 @@
                 <div class=" card-profile mt-sm-2 border m-4">
                     <div class=" mt-2 ml-4">
                         <div>
-                            <div class="row"> Account Status: <div class="text-warning ml-2">No Payment </div>
+                            <div class="row"> Account Status: <div class="text-danger ml-2">No payment</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center" style="font-weight: 700" v-else-if="User.paid == 1 && User.activated == null">
+            <p class="checks">Your payment has been received, please hold on for the Administrator to activate your account</p> <br />
+
+            <div class="card-mid-pending mr-5 mt-5 row">
+                <div class=" card-profile mt-sm-2 border m-4 mr-1">
+                    <div class="">
+                        <div class="m-4 row">
+                            <router-link class="" :to="{name:'Profile'}" style="color:#02022c; text-decoration: none;">
+                                <div class="row">
+                                    <div class="col">
+                                        <img v-if="User.avatar" class="card-img-top border" :src='`images/${User.avatar}`' alt="Card image cap" style="height: 150px; width: 150px; border-radius: 10px">
+                                        <i v-else-if="User.avatar == null" class="fas fa-user mt-3 text-center" style="font-size: 165px; color: #686363"></i>
+                                    </div>
+                                    <div class="mt-2">
+                                        <div class="m-2">
+                                            <h5 class="card-title mt-2" style=" font-weight: 700">{{User.name}} {{User.lastName}}</h5>
+                                        </div>
+                                        <div class="m-2">
+                                            <p class="card-title mt-2" style=" font-weight: 700"> {{User.email}} </p>
+                                        </div>
+                                        <div class="m-2">
+                                            <p v-if="User.post_counts > 1" class="card-title mt-2" style=" font-weight: 700">You have {{User.post_counts}} posts</p>
+                                            <p v-if="User.post_counts == 1" class="card-title mt-2" style=" font-weight: 700">You have {{User.post_counts}} post</p>
+                                            <p v-if="User.post_counts == 0" class="card-title mt-2" style=" font-weight: 700">You have no post</p>
+                                        </div>
+                                        <div class="m-2 mt-2"> <small class="">Joined on {{User.created_at}}</small></div>
+                                    </div>
+                                </div>
+                            </router-link>
+                        </div>
+                    </div>
+                </div>
+                <div class=" card-profile mt-sm-2 border m-4">
+                    <div class=" mt-2 ml-4">
+                        <div>
+                            <div class="row"> Account Status: <div class="text-warning ml-2">Pending</div>
                             </div>
                         </div>
                     </div>

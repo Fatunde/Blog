@@ -65,7 +65,7 @@ export default {
             if (response.status = "success") {
 
                 console.log('It was suucessful')
-                axios.put('auth/paid' + this.id, {
+                axios.put('/api/auth/paid' + this.id, {
                     paid: this.paid,
 
                 }).then(this.$router.push('/paymentsuccess'))
