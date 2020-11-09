@@ -25,7 +25,7 @@
         "tymon/jwt-auth": "^1.0.0-rc.2",
         "unicodeveloper/laravel-paystack": "^1.0",
         "yabacon/paystack-php": "^2.2",
-        "ext" : "*"
+        "ext-gd" : "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
