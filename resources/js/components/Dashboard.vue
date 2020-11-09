@@ -6,7 +6,7 @@
         <DashboardNavbar />
 
         <div class="m-4 mb-5">
-            <h3 class="ml-5" style="font-weight: 700">Welcome {{User.name}}</h3>
+            <h3 class="ml-3" style="font-weight: 700; color: #00bfd8">Welcome {{User.name}}</h3>
         </div>
         <div class="text-center" style="font-weight: 700" v-if="User.disable == 1">
             <p class="checks">Your account has been disabled by the Management, contact the Administrator to Re-enable your account</p>
@@ -181,123 +181,156 @@
             </div>
         </div>
         <div v-else>
+            <!--       <div class="card m-2" v-bind:key="post.id" v-for="post in posts">
+                        <div class="row">
+                            <div class="">
+                                <router-link class="row ml-3" :to="{name:'Userview', params:{id: post.id}}" style="color:#ffff; text-decoration: none;">
+                                    <div>
+                                        <img class="" v-if="post.image !== 'No image'" :src='`images/${post.image}`' alt="Card image cap" style="height: 200px; width: 200px; border-radius: 100px;">
 
-            <div class="row m-1">
-                <div class="col">
+                                    </div>
+                                    <div class=" ">
+                                        <h5 class="card-title" style=" font-weight: 700">{{post.title}}</h5>
+                                        <p class="card-text">{{post.body}}</p>
 
-                    <div class="">
-                        <div class="ml-lg-5" style="font-size: 20px; font-weight: 700;">Your latest Posts</div>
-                        <div class=" ml-lg-5 card mt-3" v-bind:key="post.id" v-for="post in posts">
-                            <div class="row">
-                                <div class="">
-                                    <router-link class="row ml-3" :to="{name:'Userview', params:{id: post.id}}" style="color:#ffff; text-decoration: none;">
+                                    </div>
+                                </router-link>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="col dropdown text-right float-right">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Options
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="border-radius: 10px; width: 40px">
+                                    <div class="text-center" style="color: #02022c">
                                         <div>
-                                            <img class="ml-4 mt-2" v-if="post.image !== 'No image'" :src='`images/${post.image}`' alt="Card image cap" style="height: 200px; width: 200px; border-radius: 100px;">
-
+                                            <router-link :to="{name: 'edit', params: {id: post.id}}" style="text-decoration: none; color: #02022c">
+                                                <p style="font-weight: 700">Edit</p>
+                                            </router-link>
                                         </div>
-                                        <div class="m-4 col ">
-                                            <h5 class="card-title" style=" font-weight: 700">{{post.title}}</h5>
-                                            <p class="card-text">{{post.body}}</p>
+                                        <div> <a class="btn" style="font-weight: 700;" @click="deletePost(post)">Delete</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class=""> <small class="text-white">On {{post.created_at}}</small></div>
+                    </div>-->
+            <div class="row m-3">
+                <div class="col-lg-4 container">
+                    <div class="box row m-1">
+                        <div style="color: #00bfd8">Your latest Posts</div>
+                        <div class="card mt-3" style="color: #00bfd8" v-bind:key="post.id" v-for="post in posts">
+                            <div class="row">
+                                <div class="col">
+                                    <router-link class="" :to="{name:'Userview', params:{id: post.id}}" style="text-decoration: none; color: #00bfd8">
+                                        <div>
+                                            <img class="m-3" v-if="post.image !== 'No image'" :src='`images/${post.image}`' alt="Card image cap" style="height: 150px; width: 150px; border-radius: 100px">
 
                                         </div>
                                     </router-link>
                                 </div>
-                            </div>
-                            <div class="col">
-                                <div class="col dropdown text-right float-right">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Options
-                                    </button>
-                                    <div class="dropdown-menu " aria-labelledby="dropdownMenuButton" style="border-radius: 10px; width: 40px">
-                                        <div class="text-center  m-auto" style="color: #02022c">
-                                            <div>
-                                                <router-link :to="{name: 'edit', params: {id: post.id}}" style="text-decoration: none; color: #02022c">
-                                                    <p style="font-weight: 700">Edit</p>
-                                                </router-link>
+                                <router-link class="col-sm  m-3" :to="{name:'Userview', params:{id: post.id}}" style="text-decoration: none; color: #00bfd8">
+                                    <div class=" text-white">
+                                        <div style="font-size: 30px; font-weight: 700; color: #00bfd8">{{post.title}}</div>
+                                    </div>
+                                </router-link>
+                                <div class="col">
+                                    <div class="dropdown text-right float-right">
+                                        <button class="btn btn-secondary dropdown-toggle m-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Options
+                                        </button>
+                                        <div class="dropdown-menu bg-transparent" aria-labelledby="dropdownMenuButton" style="border-radius: 10px; width: 20px">
+                                            <div class="text-center" style="color: #02022c">
+                                                <div>
+                                                    <router-link :to="{name: 'edit', params: {id: post.id}}" style="text-decoration: none; color: #02022c">
+                                                        <p style="font-weight: 700">Edit</p>
+                                                    </router-link>
+                                                </div>
+                                                <div> <a class="btn" style="font-weight: 700; margin-top: -10px" @click="deletePost(post)">Delete</a></div>
                                             </div>
-                                            <div> <a class="btn" style="font-weight: 700; margin-top: -20px" @click="deletePost(post)">Delete</a></div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
-
-                            <div class="ml-4 mt-4"> <small class="text-white">On {{post.created_at}}</small></div>
+                            <div class="m-3 text-muted">
+                                <div> Created on {{post.created_at}}</div>
+                            </div>
                         </div>
-
                     </div>
-
                 </div>
-                <div>
-                    <div class="" style="font-size: 20px; font-weight: 700;">Your Most Viewed Posts</div>
-                    <div class="cardy card-mid1  mr-5 row">
-
-                        <div class=" card-view mt-sm-2 border ml-1 ml-3" v-bind:key="postview.id" v-for="postview in postviews">
+                <div class="col-lg-4 container">
+                    <div class="mt-1" style="color: #00bfd8">Your Most Viewed Posts</div>
+                    <div class="box box-most row mt-lg-2">
+                        <div class="card-most text-center m-2" v-bind:key="postview.id" v-for="postview in postviews" style="">
                             <div class="">
-                                <div class="m-4 text-center">
-                                    <router-link class="" :to="{name:'Userview', params:{id: postview.id}}" style="color:#ffff; text-decoration: none;">
+                                <div class="">
+                                    <router-link class="" :to="{name:'Userview', params:{id: postview.id}}" style="color: #00bfd8; text-decoration: none;">
                                         <div>
-                                            <img class="" v-if="postview.image !== 'No image'" :src='`images/${postview.image}`' alt="Card image cap" style="height: 150px; width: 150px; border-radius: 100px">
+                                            <img class="mt-2" v-if="postview.image !== 'No image'" :src='`images/${postview.image}`' alt="Card image cap" style="height: 150px; width: 150px; border-radius: 100px">
 
                                         </div>
                                         <div class="mt-2">
                                             <h5 class="card-title" style=" font-weight: 700">{{postview.title}}</h5>
                                         </div>
-                                        <div class="mt-4"> <small class="">with {{postview.view}} views</small></div>
+                                        <div class="mt-4"> <small class="text-muted">with {{postview.view}} views</small></div>
                                     </router-link>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <div class="" style="font-size: 20px; font-weight: 700;">Your Personal Information</div>
-                    <div class="cardy card-mid mr-5  row">
-                        <div class=" card-profile mt-sm-2 border m-4 mr-1">
+                <div class="col-lg-4 container">
+                    <div class="box row m-1">
+                        <div style="color: #00bfd8">Your Personal Information</div>
+                        <div class="card mt-3" style="height: 230px">
                             <div class="">
-                                <div class="m-4 row">
-                                    <router-link class="" :to="{name:'Profile'}" style="color:#ffff; text-decoration: none;">
+                                <div class="ml-4">
+                                    <router-link class="" to="/profile" style="color:#ffff; text-decoration: none;">
                                         <div class="row">
-                                            <div class="col">
-                                                <img v-if="User.avatar" class="card-img-top border" :src='`images/${User.avatar}`' alt="Card image cap" style="height: 150px; width: 150px; border-radius: 10px">
-                                                <i v-else-if="User.avatar == null" class="fas fa-user mt-3 text-center" style="font-size: 165px; color: #686363"></i>
-                                            </div>
+
+                                            <img v-if="User.avatar" class="card-img-top border" :src='`images/${User.avatar}`' alt="Card image cap" style="height: 150px; width: 150px; border-radius: 10px">
+                                            <i v-else-if="User.avatar == null" class="fas fa-user mt-3 text-center" style="font-size: 165px; color: #686363"></i>
+
                                             <div class="mt-2">
                                                 <div class="m-2">
-                                                    <h5 class="card-title mt-2" style=" font-weight: 700">{{User.name}} {{User.lastName}}</h5>
+                                                    <h5 class="card-title mt-2" style=" font-weight: 700; color: #00bfd8">{{User.name}} {{User.lastName}}</h5>
                                                 </div>
                                                 <div class="m-2">
-                                                    <p class="card-title mt-2" style=" font-weight: 700"> {{User.email}} </p>
+                                                    <p class="card-title mt-2" style=" font-weight: 700; color: #00bfd8"> {{User.email}} </p>
                                                 </div>
                                                 <div class="m-2">
-                                                    <p v-if="User.post_counts > 1" class="card-title mt-2" style=" font-weight: 700">You have {{User.post_counts}} posts</p>
-                                                    <p v-if="User.post_counts == 1" class="card-title mt-2" style=" font-weight: 700">You have {{User.post_counts}} post</p>
+                                                    <p v-if="User.post_counts > 1" class="card-title mt-2" style=" font-weight: 700; color: #00bfd8">You have {{User.post_counts}} posts</p>
+                                                    <p v-if="User.post_counts == 1" class="card-title mt-2" style=" font-weight: 700; color: #00bfd8">You have {{User.post_counts}} post</p>
                                                 </div>
-                                                <div class="m-2 mt-2"> <small class="">Joined on {{User.created_at}}</small></div>
                                             </div>
                                         </div>
+                                        <div class="mt-2"> <small class="text-muted">Joined on {{User.created_at}}</small></div>
                                     </router-link>
                                 </div>
                             </div>
                         </div>
-                        <div class=" card-profile mt-sm-2 border m-4 text-center">
-                            <div class=" mt-2" style="font-size: 25px;">
-                                <div class="" v-if="User.paid == 1 && User.activated == 1 && User.disable == null">
-                                    <div class="">Account Status <div class="text-success">Active</div>
+                        <div class=" card text-center mt-3" style="height: 230px">
+                            <div class="" style="font-size: 25px;">
+                                <div class="" v-if="User.paid == 1 && User.activated == 1 && User.disable == null && User.post_counts >= 1">
+                                    <div class="" style="color: #00bfd8">Account Status <div class="text-success">Active</div>
                                     </div>
                                     <router-link to="/allpost" class="btn button mt-5">
                                         <p class="mt-3">View All Posts</p>
                                     </router-link>
                                 </div>
                                 <div v-if="User.paid == 1 && User.activated == null && User.disable == null">
-                                    <div class="">Account Status <div class="text-warning">Pending</div>
+                                    <div class="" style="color: #00bfd8">Account Status <div class="text-warning">Pending</div>
                                     </div>
                                 </div>
                                 <div v-if="User.disable == 1">
-                                    <div class=""> Account Status <div class="text-warning">>Disabled</div>
+                                    <div class="" style="color: #00bfd8"> Account Status <div class="text-warning">>Disabled</div>
                                     </div>
                                 </div>
                                 <div v-if="User.paid == null">
-                                    <div class="">Account Status <div class="text-danger">Payment Not Made</div>
+                                    <div class="" style="color: #00bfd8">Account Status <div class="text-danger">Payment Not Made</div>
                                     </div>
                                 </div>
                             </div>
@@ -425,106 +458,13 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (max-width: 600px) {
-    .card {
-        width: 100% !important;
-
-    }
-
-    .card-view {
-        width: 400px !important;
-
-    }
-
-    .card-profile {
-        width: 100%;
-
-    }
-}
-
-.card-mid {
-    width: 500px;
-    margin-top: 5px;
-    height: 75vh;
-    background-color: #ffff;
-}
-
-.card-mid-pending {
-    margin: auto;
-    width: 500px;
-    margin-top: 5px;
-
-    height: 100%;
-    background-color: #ffff;
-}
-
-.card-mid1 {
-    width: 500px;
-    margin-top: 5px;
-
-    height: 100%;
-    background-color: #ffff;
-}
-
-.card-view {
-    width: 230px;
-    opacity: 80%;
-    border-radius: 10px !important;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    transition: 0.3s;
-    height: 300px;
-    background-color: #7979eb;
-}
-
-.card-view:hover {
-
-    opacity: 200%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transform: scale(1.05) translateZ(0);
-    transition-duration: 0.5s;
-    transition-timing-function: linear;
-}
-
-.card-profile {
-    width: 100%;
-    opacity: 80%;
-    border-radius: 10px !important;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    transition: 0.3s;
-    height: 290px;
-    background-color: #7979eb;
-}
-
-.card-profile:hover {
-
-    opacity: 200%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transform: scale(1.05) translateZ(0);
-    transition-duration: 0.5s;
-    transition-timing-function: linear;
-}
-
 .all {
-    background-color: #ffff;
+    background: url('./images/contact-background.jpg');
     height: 100%;
 }
 
 .here {
     margin: auto;
-}
-
-.container {
-    height: 10em;
-    position: relative
-}
-
-.container h2 {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
 }
 
 .Username {
@@ -537,9 +477,8 @@ export default {
 
 .card {
     height: 100%;
-    width: 600px;
-    margin-top: 5px;
-    background-color: #7979eb;
+    width: 100%;
+    background-color: #e8f7f8;
     opacity: 80%;
     border-radius: 10px !important;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
@@ -548,7 +487,7 @@ export default {
 
 .button {
     text-decoration: none;
-    background-color: #00008B;
+    background-color: #00bfd8;
     height: 70px;
     width: 350px;
     opacity: 80%;
@@ -565,8 +504,27 @@ export default {
     transform: scale(1.10) translateZ(0);
     transition-duration: 0.5s;
     transition-timing-function: linear;
-    color: #00008B !important;
+    color: #00bfd8 !important;
 
+}
+
+.card-most {
+    height: 100%;
+    width: 47%;
+    background-color: #e8f7f8;
+    opacity: 80%;
+    border-radius: 10px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+
+}
+
+.card-most:hover {
+    opacity: 200%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05) translateZ(0);
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
 }
 
 .card:hover {
@@ -576,5 +534,27 @@ export default {
     transform: scale(1.05) translateZ(0);
     transition-duration: 0.5s;
     transition-timing-function: linear;
+}
+
+@media screen and (max-width: 600px) {
+    .card {
+        width: 100% !important;
+
+    }
+
+    .card-most {
+        width: 100% !important;
+
+    }
+
+    .button {
+
+        width: 250px;
+
+    }
+
+    .box-most {
+        margin: 0px;
+    }
 }
 </style>

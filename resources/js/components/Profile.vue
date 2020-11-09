@@ -14,6 +14,7 @@
             <div v-else class="card-img-top">
                 <input type="file" v-on:change="onImageChange" style="back-ground-color: #00008B" hidden id="upload">
                 <label for="upload"> <i class="fas fa-user mt-3" style="font-size: 200px; color: #686363"></i></label>
+                <div style="font-weight: 700">Add a Profile Picture</div>
             </div>
         </div>
         <div class="down">

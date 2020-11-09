@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-md navbar-light shadow-sm">
 
         <a class="navbar-brand ml-lg-5">
-            <h3 style="color: #00008B; font-weight: 700;">Management</h3>
+            <h3 style="color: #00bfd8; font-weight: 700;">Management</h3>
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
@@ -14,17 +14,17 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ml-lg-5">
-                    <router-link to="/dashboard" class="nav-link" style="color: #00008B; font-weight: 700;">
+                    <router-link to="/dashboard" class="nav-link" style="color: #00bfd8; font-weight: 700;">
                         Dashboard
                     </router-link>
                 </li>
                 <li class="nav-item ml-lg-5">
-                    <router-link to="/userblog" class="nav-link" style="color: #00008B; font-weight: 700;">
+                    <router-link to="/userblog" class="nav-link" style="color: #00bfd8; font-weight: 700;">
                         Blog
                     </router-link>
                 </li>
                 <li class="nav-item ml-lg-5">
-                    <router-link to="/pending" class="nav-link" style="color: #00008B; font-weight: 700;">
+                    <router-link to="/pending" class="nav-link" style="color: #00bfd8; font-weight: 700;">
                         Status
                     </router-link>
                 </li>
@@ -35,13 +35,13 @@
                 <!-- Authentication Links -->
 
                 <li class="nav-item dropdown mr-lg-5">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #00008B; font-weight: 700;">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #00bfd8; font-weight: 700;">
                         {{User.name}}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <button @click="payCreate" class="nav-link btn btn-white" style="color: #00008B; font-weight: 700;">Create post</button>
-                        <router-link to="/profile" class="nav-link" style="color: #00008B; font-weight: 700;">View Profile</router-link>
-                        <button @click="logOut" class="nav-link btn btn-white" style="color: #00008B; font-weight: 700;">Log out</button>
+                        <button @click="payCreate" class="nav-link btn btn-white" style="color: #00bfd8; font-weight: 700;">Create post</button>
+                        <router-link to="/profile" class="nav-link" style="color: #00bfd8; font-weight: 700;">View Profile</router-link>
+                        <button @click="logOut" class="nav-link btn btn-white" style="color: #00bfd8; font-weight: 700;">Log out</button>
                     </div>
                 </li>
             </ul>
