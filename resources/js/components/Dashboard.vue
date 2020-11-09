@@ -10,8 +10,8 @@
         </div>
         <div class="text-center" style="font-weight: 700" v-if="User.disable == 1">
             <p class="checks">Your account has been disabled by the Management, contact the Administrator to Re-enable your account</p>
-            <div class="card-mid-pending mr-5 mt-5 row">
-                <div class=" card-profile mt-sm-2 border m-4 mr-1">
+            <div class="card mr-5 mt-5 row">
+                <div class=" card mt-sm-2 border m-4 mr-1">
                     <div class="">
                         <div class="m-4 row">
                             <router-link class="" :to="{name:'Profile'}" style="color:#02022c; text-decoration: none;">
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=" card-profile mt-sm-2 border m-4">
+                <div class=" card mt-sm-2 border m-4">
                     <div class=" mt-2 ml-4">
                         <div>
                             <div class="row"> Account Status: <div class="text-warning ml-2">Disabled</div>
@@ -55,8 +55,8 @@
             <router-link class="button btn " to="/payment">
                 <h4 class="mt-2">Pay</h4>
             </router-link>
-            <div class="card-mid-pending mr-5 mt-5 row">
-                <div class=" card-profile mt-sm-2 border m-4 mr-1">
+            <div class="card mr-5 mt-5 row">
+                <div class=" card mt-sm-2 border m-4 mr-1">
                     <div class="">
                         <div class="m-4 row">
                             <router-link class="" :to="{name:'Profile'}" style="color:#02022c; text-decoration: none;">
@@ -84,7 +84,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=" card-profile mt-sm-2 border m-4">
+                <div class=" card mt-sm-2 border m-4">
                     <div class=" mt-2 ml-4">
                         <div>
                             <div class="row"> Account Status: <div class="text-danger ml-2">No payment</div>
@@ -126,7 +126,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=" card-profile mt-sm-2 border m-4">
+                <div class=" card mt-sm-2 border m-4">
                     <div class=" mt-2 ml-4">
                         <div>
                             <div class="row"> Account Status: <div class="text-warning ml-2">Pending</div>
@@ -141,8 +141,8 @@
             <router-link class="button btn " to="/create">
                 <h4 class="mt-2">Create Post</h4>
             </router-link>
-            <div class="card-mid-pending mr-5 mt-5 row">
-                <div class=" card-profile mt-sm-2 border m-4 mr-1">
+            <div class="card mr-5 mt-5 row">
+                <div class=" card mt-sm-2 border m-4 mr-1">
                     <div class="">
                         <div class="m-4 row">
                             <router-link class="" :to="{name:'Profile'}" style="color:#02022c; text-decoration: none;">
@@ -170,7 +170,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=" card-profile mt-sm-2 border m-4">
+                <div class=" card mt-sm-2 border m-4">
                     <div class=" mt-2 ml-4">
                         <div>
                             <div class="row"> Account Status: <div class="text-success ml-2">Active</div>
@@ -275,7 +275,7 @@
                                         <div class="mt-2">
                                             <h5 class="card-title" style=" font-weight: 700">{{postview.title}}</h5>
                                         </div>
-                                        <div class="mt-4"> <small class="text-muted">with {{postview.view}} views</small></div>
+                                        <div class="mt-4"> <small class="text-muted">with {{postview.view -1}} views</small></div>
                                     </router-link>
                                 </div>
                             </div>
@@ -314,7 +314,7 @@
                         </div>
                         <div class=" card text-center mt-3" style="height: 230px">
                             <div class="" style="font-size: 25px;">
-                                <div class="" v-if="User.paid == 1 && User.activated == 1 && User.disable == null && User.post_counts >= 1">
+                                <div class="" v-if="User.paid == 1 && User.activated == 1 && User.disable == 0 || User.disable == null && User.post_counts >= 1">
                                     <div class="" style="color: #00bfd8">Account Status <div class="text-success">Active</div>
                                     </div>
                                     <router-link to="/allpost" class="btn button mt-5">
