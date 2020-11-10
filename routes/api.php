@@ -42,7 +42,8 @@ Route::group([
     Route::post('pay', 'PaymentController@redirectToGateway');
     Route::post('reset-password', 'AuthController@sendPasswordResetLink');
     Route::post('reset/password', 'AuthController@callResetPassword');
-    Route::get('me', 'AuthController@me');
+   // Route::get('me', 'AuthController@me');
+    Route::post('password/email', 'AuthController@forgot');
 
   
     

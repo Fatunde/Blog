@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Support\Facades\Gate;
 use App\Post;
 use App\User;
@@ -21,7 +24,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login', 'sendPasswordResetLink', 'sendResetLinkResponse']]);
     }
 
     /**
@@ -63,7 +66,29 @@ class AuthController extends Controller
        
        return $userdata;
     }
-    
+
+            
+        /**
+         * Send password reset link. 
+         */
+       
+        public function sendPasswordResetLink(Request $request)
+        {
+            return $this->sendResetLinkEmail($request->input('email'));
+        }
+
+        protected function sendResetLinkResponse($response)
+        {
+            return response()->json([
+                'message' => 'Password reset email sent.',
+                'data' => $response
+            ]);
+        }
+        protected function sendResetLinkFailedResponse($response)
+        {
+            return response()->json(['message' => 'Email could not be sent to this email address.']);
+        }
+
     
 
     public function admin()
