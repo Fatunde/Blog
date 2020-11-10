@@ -219,13 +219,13 @@
                     </div>-->
             <div class="row m-3">
                 <div class="col-lg-4 container">
-                    <div class="box row m-1">
-                        <div style="color: #00bfd8">Your latest Posts</div>
-                        <div class="card mt-3" style="color: #00bfd8" v-bind:key="post.id" v-for="post in posts">
+                    <div class="box row">
+                        <div class="ml-lg-3" style="color: #00bfd8">Your latest Posts</div>
+                        <div class="card mt-3 m-1 ml-lg-3" style="color: #00bfd8" v-bind:key="post.id" v-for="post in posts">
                             <div class="row">
                                 <div class="col">
                                     <router-link class="" :to="{name:'Userview', params:{id: post.id}}" style="text-decoration: none; color: #00bfd8">
-                                        <div>
+                                        <div v-if="post.image">
                                             <img class="m-3" v-if="post.image !== 'No image'" :src='`images/${post.image}`' alt="Card image cap" style="height: 150px; width: 150px; border-radius: 100px">
 
                                         </div>
@@ -256,15 +256,15 @@
 
                             </div>
                             <div class="m-3 text-muted">
-                                <div> Created on {{post.created_at}}</div>
+                                <small> Created on {{post.created_at}}</small>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 container">
-                    <div class="mt-1" style="color: #00bfd8">Your Most Viewed Posts</div>
+                    <div class="mt-1 ml-lg-4" style="color: #00bfd8">Your Most Viewed Posts</div>
                     <div class="box box-most row mt-lg-2">
-                        <div class="card-most text-center m-2" v-bind:key="postview.id" v-for="postview in postviews" style="">
+                        <div class="card-most text-center col-lg-4 col-md ml-lg-5 m-lg-2" v-bind:key="postview.id" v-for="postview in postviews" style="">
                             <div class="">
                                 <div class="">
                                     <router-link class="" :to="{name:'Userview', params:{id: postview.id}}" style="color: #00bfd8; text-decoration: none;">
@@ -510,7 +510,7 @@ export default {
 
 .card-most {
     height: 100%;
-    width: 47%;
+    width: 50%;
     background-color: #e8f7f8;
     opacity: 80%;
     border-radius: 10px !important;
