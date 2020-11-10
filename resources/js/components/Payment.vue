@@ -1,9 +1,9 @@
 <template>
-<div class="container">
+<div class="all">
     <DashboardNavbar />
     <div class="box text-center mt-5  text-success boarder-white">
         <div>
-            <h4 style="color: #00008B">Before you can create post you have to pay just 1000Naira only</h4>
+            <h4 style="color: #00bfd8">Before you can create post you have to pay just 1000Naira only</h4>
         </div>
         <paystack :amount="amount" :email="email" :paystackkey="paystackkey" :reference="reference" :callback="callback" :close="close" :embed="false" class="btn btn-primary button border-round mt-5">
             <i class="fas fa-money-bill-alt"></i>
@@ -83,9 +83,13 @@ export default {
 </script>
 
 <style scoped>
+.all {
+    background: url('./images/contact-background.jpg');
+}
+
 .button {
     text-decoration: none;
-    background-color: #00008B;
+    background-color: #00bfd8;
     height: 70px;
     width: 250px;
     opacity: 80%;
@@ -102,7 +106,7 @@ export default {
     transform: scale(1.10) translateZ(0);
     transition-duration: 0.5s;
     transition-timing-function: linear;
-    color: #00008B;
+    color: #00bfd8;
 
 }
 </style>

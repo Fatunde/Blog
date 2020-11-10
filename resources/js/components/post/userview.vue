@@ -1,11 +1,11 @@
 <template>
-<div>
+<div class="all">
     <DashboardNavbar />
     <div class="container">
 
         <div class="card-body card mt-3 rounded row-lg" style="height: 100%; " v-bind:key="post.id">
             <img class="card-img-top" :src='`images/${post.image}`' alt="Card image cap" style="height: 400px; width: 340px; margin: auto">
-            <div class="row-lg text-center" style="color: #00008B">
+            <div class="row-lg text-center" style="color: #00bfd8">
                 <h3 class="mb-2">{{post.title}}</h3>
                 <p class="mt-5 mb-5">{{post.body}}</p>
                 <div v-if="User.name == post.user_name">
@@ -90,11 +90,15 @@ export default {
 </script>
 
 <style scoped>
+.all {
+    background: url('../images/contact-background.jpg');
+}
+
 .card {
     margin: auto;
     width: 100%;
     margin-top: 50px;
-    background-color: white;
+    background-color: #e8f7f8;
     opacity: 80%;
     border-radius: 10px !important;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
@@ -113,7 +117,7 @@ export default {
 
 button {
     text-decoration: none;
-    background-color: red;
+    background-color: #00bfd8;
     height: 70px;
     width: 250px;
     opacity: 80%;
@@ -125,7 +129,7 @@ button {
 
 .button {
     text-decoration: none;
-    background-color: #00008B;
+    background-color: #00bfd8;
     height: 70px;
     width: 250px;
     opacity: 80%;

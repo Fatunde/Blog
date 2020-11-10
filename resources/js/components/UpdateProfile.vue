@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="all">
 
     <div class="">
         <div>
@@ -107,10 +107,15 @@ export default {
 </script>
 
 <style scoped>
+.all {
+    background: url('./images/contact-background.jpg');
+    height: 100%;
+}
+
 form {
     font-size: 15px;
     font-weight: bold;
-    color: #00008B;
+    color: #00bfd8;
 }
 
 .button {
@@ -119,7 +124,7 @@ form {
     width: 305px;
     height: 60px;
     margin-top: 20px;
-    background-color: #00008B;
+    background-color: #00bfd8;
     border: none !important;
     outline: none !important;
     border-radius: 5px;
@@ -137,12 +142,12 @@ form {
 }
 
 .button p:hover {
-    color: #00008B
+    color: #00bfd8
 }
 
 h3 {
     margin: auto;
-    color: #00008B
+    color: #00bfd8
 }
 
 .input {
@@ -159,7 +164,7 @@ h3 {
     width: 350px;
     margin: auto;
     margin-top: 50px;
-    background-color: white;
+    background-color: #e8f7f8;
     opacity: 80%;
     border-radius: 10px !important;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);

@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="all">
     <DashboardNavbar />
     <div class="text-center" style="font-weight: 700" v-if="User.disable == 1">
         <p class="checks">Your account has been disabled by the Management, contact the Administrator to Re-enable your account</p>
@@ -84,10 +84,14 @@ export default {
 </script>
 
 <style scoped>
+.all {
+    background: url('../images/contact-background.jpg');
+}
+
 form {
     font-size: 15px;
     font-weight: bold;
-    color: #00008B;
+    color: #00bfd8;
 }
 
 button {
@@ -96,7 +100,7 @@ button {
     width: 305px;
     height: 60px;
     margin-top: 20px;
-    background-color: #00008B;
+    background-color: #00bfd8;
 }
 
 button:hover {
@@ -105,7 +109,7 @@ button:hover {
 
 h2 {
     font-weight: 700;
-    color: #00008B;
+    color: #00bfd8;
 }
 
 button p {
@@ -115,12 +119,12 @@ button p {
 }
 
 button p:hover {
-    color: #00008B
+    color: #00bfd8
 }
 
 h3 {
     margin: auto;
-    color: #00008B
+    color: #00bfd8
 }
 
 .input {
@@ -138,7 +142,7 @@ h3 {
     width: 100%;
     margin: auto;
     margin-top: 50px;
-    background-color: white;
+    background-color: #e8f7f8;
     opacity: 80%;
     border-radius: 10px !important;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);

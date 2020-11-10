@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="all">
     <DashboardNavbar />
 
     <section>
@@ -10,7 +10,7 @@
         <div class="row  ml-5">
 
             <div class="card" v-bind:key="read.id" v-for="read in reads">
-                <router-link :to="{name:'Userview', params:{id: read.id}}" style="color: black; text-decoration: none;">
+                <router-link :to="{name:'Userview', params:{id: read.id}}" style="color: #00bfd8; text-decoration: none;">
                     <img v-if="read.image !== 'No image'" class="card-img-top" :src='`images/${read.image}`' alt="Card image cap" style="height: 300px; border-radius: 10px 10px 0px 0px">
                     <div class="card-body">
                         <h5 class="card-title">{{read.title}}</h5>
@@ -40,7 +40,7 @@
 
         <div class="row  ml-5">
             <div class="card" v-bind:key="post.id" v-for="post in posts">
-                <router-link :to="{name:'Userview', params:{id: post.id}}" style="color: black; text-decoration: none;">
+                <router-link :to="{name:'Userview', params:{id: post.id}}" style="color: #00bfd8; text-decoration: none;">
                     <img v-if="post.image !== 'No image'" class="card-img-top" :src='`images/${post.image}`' alt="Card image cap" style="height: 300px; border-radius: 10px 10px 0px 0px">
                     <div class="card-body">
                         <h5 class="card-title">{{post.title}}</h5>
@@ -200,25 +200,29 @@ export default {
 </script>
 
 <style scoped>
+.all {
+    background: url('../images/contact-background.jpg');
+}
+
 .pagination {
     margin: auto;
 }
 
 .recent {
-    color: #00008B;
+    color: #00bfd8;
     font-size: 25px;
     font-weight: 700;
 }
 
 h3 {
     margin: auto;
-    color: #00008B;
+    color: #00bfd8;
     font-weight: 700;
 
 }
 
 p {
-    color: #00008B;
+    color: #00bfd8;
     font-weight: bold;
     margin-bottom: 40px
 }

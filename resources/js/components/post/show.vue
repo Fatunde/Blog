@@ -1,10 +1,10 @@
 <template>
-<div>
+<div class="all">
     <Navbar />
     <div class="container">
         <div class="card-body card mt-3 rounded row-lg" style="height: 100%; font-weight: 700; m-5" v-bind:key="post.id">
             <img v-if="post.image !== 'No image'" class="card-img-top" :src='`images/${post.image}`' alt="Card image cap" style="height: 400px; width: 340px; margin: auto">
-            <div class="row-lg text-center" style="color: #00008B">
+            <div class="row-lg text-center" style="color: #00bfd8">
                 <h3 class="mb-5" style="font-weight: 700; ">{{post.title}}</h3>
                 <p class="mt-5 mb-5"> {{post.body}}</p>
                 <small class="text-muted">On {{post.created_at}} by {{post.user_name}}</small>
@@ -63,11 +63,15 @@ export default {
 </script>
 
 <style scoped>
+.all {
+    background: url('../images/contact-background.jpg');
+}
+
 .card {
     margin: auto;
     width: 100%;
     margin-top: 50px;
-    background-color: white;
+    background-color: #e8f7f8;
     opacity: 80%;
     border-radius: 10px !important;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);

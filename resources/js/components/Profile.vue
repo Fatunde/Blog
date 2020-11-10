@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="all">
     <DashboardNavbar />
 
     <div class="card mt-3  card-body rounded " v-bind:key="User.id">
@@ -7,12 +7,12 @@
         <router-link v-if="User.avatar" to="/profilepicture"> <img class="card-img-top" :src='`images/${User.avatar}`' alt="Card image cap" style="height: 300px; border-radius:200px;"></router-link>
         <div v-else-if="User.avatar == null" style="height: 300px; border-radius:200px;" class="text-center border">
             <div v-if="image" style="margin: auto;">
-                <input type="file" v-on:change="onImageChange" style="back-ground-color: #00008B" hidden id="upload">
+                <input type="file" v-on:change="onImageChange" style="back-ground-color: #00bfd8" hidden id="upload">
                 <label for="upload"> <img :src="image" class="card-img-top" style="height: 300px; border-radius:200px; width: 300px"></label>
                 <button @click="handleSubmit" class="file text-center" style="margin-top: -30px">Upload</button>
             </div>
             <div v-else class="card-img-top">
-                <input type="file" v-on:change="onImageChange" style="back-ground-color: #00008B" hidden id="upload">
+                <input type="file" v-on:change="onImageChange" style="back-ground-color: #00bfd8" hidden id="upload">
                 <label for="upload"> <i class="fas fa-user mt-3" style="font-size: 200px; color: #686363"></i></label>
                 <div style="font-weight: 700">Add a Profile Picture</div>
             </div>
@@ -108,12 +108,17 @@ export default {
 </script>
 
 <style scoped>
+.all {
+    background: url('./images/contact-background.jpg');
+    height: 100%;
+}
+
 .down {
     margin-top: 20px;
 }
 
 .file {
-    background-color: #00008B;
+    background-color: #00bfd8;
     color: white;
     padding: 0.5rem;
     border-radius: 0.3rem;
@@ -125,12 +130,12 @@ export default {
 }
 
 .card {
-    color: #00008B;
+    color: #00bfd8;
     margin: auto;
     width: 350px;
     height: 100%;
     margin-top: 50px;
-    background-color: white;
+    background-color: #e8f7f8;
     opacity: 80%;
     border-radius: 10px !important;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
@@ -149,7 +154,7 @@ export default {
 .button {
     width: 190px;
     height: 50px;
-    background-color: #00008B;
+    background-color: #00bfd8;
     border: none !important;
     outline: none !important;
     border-radius: 5px;
@@ -158,7 +163,7 @@ export default {
 }
 
 .button:hover {
-    color: #00008B;
+    color: #00bfd8;
     background-color: white;
 }
 </style>

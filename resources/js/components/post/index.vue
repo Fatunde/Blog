@@ -1,8 +1,8 @@
 <template>
-<div>
+<div class="all">
     <Navbar />
 
-    <section>
+    <section class="mt-5">
 
         <div class="mt-5 ml-lg-5 recent">
             Most read blogs
@@ -197,6 +197,11 @@ export default {
 </script>
 
 <style scoped>
+.all {
+    background: url('../images/contact-background.jpg');
+    height: 100%;
+}
+
 .pagination {
     margin: auto;
 }
@@ -206,7 +211,7 @@ img {
 }
 
 .recent {
-    color: #00008B;
+    color: #00bfd8;
     font-size: 25px;
     font-weight: 700;
     margin-left: 20px;
@@ -214,13 +219,13 @@ img {
 
 h3 {
     margin: auto;
-    color: #00008B;
+    color: #00bfd8;
     font-weight: 700;
 
 }
 
 p {
-    color: #00008B;
+    color: #00bfd8;
     font-weight: bold;
     margin-bottom: 40px
 }
@@ -230,7 +235,7 @@ p {
     height: 100%;
     width: 300px;
     margin-top: 50px;
-    background-color: white;
+    background-color: #e8f7f8;
     opacity: 80%;
     border-radius: 10px !important;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);

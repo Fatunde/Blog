@@ -1,5 +1,5 @@
 <template>
-<div v-if="loaded">
+<div class="all" v-if="loaded">
     <DashboardNavbar />
 
     <div class="container bg-transparent" v-if="User.disable == 1">
@@ -8,7 +8,7 @@
                 <div class="card text-center ">
                     <div class="card-body">
                         <h1 class="mb-5">
-                            <h style="color: #00008B">Account Status</h>
+                            <h style="color: #00bfd8">Account Status</h>
                             <h1 class="text-warning">Disabled</h1>
                         </h1>
                         <h4 class="display-4">Your account has been disabled by the Management, contact the Administrator to Re-enable your account</h4>
@@ -25,7 +25,7 @@
                 <div class="card text-center ">
                     <div class="card-body">
                         <h1 class="mb-5">
-                            <h style="color: #00008B">Account Status</h>
+                            <h style="color: #00bfd8">Account Status</h>
                             <h1 class="text-success">Activated</h1>
                         </h1>
                         <h4 class="display-4">Your account has been activated, You can now ceate posts. Enjoy!</h4>
@@ -45,7 +45,7 @@
                 <div class="card text-center ">
                     <div class="card-body">
                         <h1 class="mb-5">
-                            <h style="color: #00008B">Account Status</h>
+                            <h style="color: #00bfd8">Account Status</h>
                             <h1 class="text-warning">Pending</h1>
                         </h1>
                         <h4 class="display-4">Your account will be activated by the administrator before you can start creating post</h4>
@@ -64,7 +64,7 @@
                 <div class="card text-center ">
                     <div class="card-body">
                         <h1 class="mb-5">
-                            <h style="color: #00008B">Account Status</h>
+                            <h style="color: #00bfd8">Account Status</h>
                             <h1 class="text-danger">Yet to Pay</h1>
                         </h1>
                         <h4 class="display-4">Your account will not be activated by the administrator until you pay 1000Naira</h4>
@@ -127,6 +127,11 @@ export default {
 </script>
 
 <style scoped>
+.all {
+    background: url('./images/contact-background.jpg');
+    height: 100%;
+}
+
 .card {
     margin-top: 50px;
     height: 400px;
@@ -136,7 +141,7 @@ export default {
 }
 
 h4 {
-    color: #00008B;
+    color: #00bfd8;
     font-size: 35px;
     font-weight: 700;
 }
@@ -147,7 +152,7 @@ h4 {
     width: 315px;
     height: 60px;
     margin-top: 20px;
-    background-color: #00008B;
+    background-color: #00bfd8;
     border: none !important;
     outline: none !important;
     border-radius: 5px;
@@ -166,12 +171,12 @@ h4 {
 }
 
 .button p:hover {
-    color: #00008B
+    color: #00bfd8
 }
 
 h3 {
     margin: auto;
-    color: #00008B;
+    color: #00bfd8;
     font-weight: 700;
 }
 
@@ -194,7 +199,7 @@ input :placeholder-shown {
     width: 500px;
     margin: auto;
     margin-top: 50px;
-    background-color: white;
+    background-color: #e8f7f8;
     opacity: 80%;
     border-radius: 10px !important;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);

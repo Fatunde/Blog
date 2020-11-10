@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="all">
     <DashboardNavbar />
     <div>
 
@@ -14,7 +14,7 @@
         <div class="text-center">
 
             <div class="col-md-6 m-lg-auto">
-                <input type="file" v-on:change="onImageChange" style="back-ground-color: #00008B" hidden id="upload">
+                <input type="file" v-on:change="onImageChange" style="back-ground-color: #00bfd8" hidden id="upload">
                 <label class="file btn" for="upload" style="font-weight: 700;">Change Profile Picture</label>
             </div>
             <button @click="handleSubmit" class="mt-3">Upload</button>
@@ -102,8 +102,13 @@ export default {
 </script>
 
 <style scoped>
+.all {
+    background: url('./images/contact-background.jpg');
+    height: 100%;
+}
+
 .file {
-    background-color: #00008B;
+    background-color: #00bfd8;
     color: white;
     padding: 0.5rem;
     border-radius: 0.3rem;
@@ -137,7 +142,7 @@ export default {
 button {
     width: 200px;
     height: 70px;
-    background-color: #00008B;
+    background-color: #00bfd8;
     color: white;
     border-radius: 10px;
     font-weight: 700;
