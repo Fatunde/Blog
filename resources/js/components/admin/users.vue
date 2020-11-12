@@ -82,9 +82,6 @@ export default {
                 this.Users = JSON.parse(localStorage.getItem('Users'))
                 this.posts = JSON.parse(localStorage.getItem('posts'))
 
-                console.log(this.Users)
-                console.log(this.posts)
-
             })
 
     },
@@ -99,7 +96,7 @@ export default {
                 }).then(
                     console.log("User Deleted")
                 ).catch(error => {
-                    console.log(error)
+
                 })
             )
         },
@@ -110,7 +107,7 @@ export default {
             }).then(
                 console.log("User Disabled")
             ).catch(error => {
-                console.log(error)
+
             })
         },
         enableUser(User) {

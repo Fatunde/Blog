@@ -80,7 +80,7 @@ export default {
         deletePost(post) {
             this.posts.splice(this.posts.indexOf(post), 1)
             axios.delete('/api/auth/posts/' + post.id).then((response) => {
-                    console.log(response)
+
                 }
 
             ).catch(error => {

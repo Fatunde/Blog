@@ -75,9 +75,11 @@ class User extends Authenticatable implements JWTSubject
 /**
  * Override the mail body for reset password notification mail.
  */
-public function sendPasswordResetNotification($token)
+public function routeNotificationForMail($notification)
 {
-    $this->notify(new \App\Notifications\MailResetPasswordNotification($token));
+
+  return $this->email;
 }
+
 
 }

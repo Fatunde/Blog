@@ -35,7 +35,7 @@ export default {
                 email: this.email
             }).then(result => {
                 this.response = result.data;
-                console.log(result.data);
+
             }, error => {
                 console.error(error);
             });

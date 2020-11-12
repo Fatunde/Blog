@@ -47,15 +47,15 @@ export default {
                 this.post = JSON.parse(localStorage.getItem('post'))
             })
             .catch(function (error) {
-                console.log(error)
+
             });
 
         axios.put('/api/auth/read' + id)
             .then(response => {
-                console.log(response)
+
             })
             .catch(function (error) {
-                console.log(error)
+
             });
     },
 

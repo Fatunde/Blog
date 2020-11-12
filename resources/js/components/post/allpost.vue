@@ -85,7 +85,6 @@ export default {
             }
         }).then(response => {
 
-            console.log(response.data[3])
             if (response.status == 401) {
                 this.$router.push('/login')
             } else {

@@ -60,8 +60,6 @@ export default {
                 this.Users = response.data
                 this.pos = response.data[0].posts
 
-                console.log(this.Users)
-
                 // console.log(this.posts)
 
             })

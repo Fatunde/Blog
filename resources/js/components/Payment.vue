@@ -71,12 +71,12 @@ export default {
                 }).then(this.$router.push('/paymentsuccess'))
             } else {
                 response.status = false
-                console.log('Not successful')
+                // console.log('Not successful')
             }
 
         },
         close: function () {
-            console.log("Payment closed")
+            // console.log("Payment closed")
         }
     }
 }

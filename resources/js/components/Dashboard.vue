@@ -410,7 +410,6 @@ export default {
             } else {
                 this.loaded = true
                 localStorage.setItem('User', JSON.stringify(response.data[0]))
-                console.log(response.data)
                 localStorage.setItem('posts', this.posts = JSON.stringify(response.data[1].data))
                 // console.log(response.data[1]).data
                 localStorage.setItem('postview', this.postviews = JSON.stringify(response.data[2].data))

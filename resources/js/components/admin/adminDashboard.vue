@@ -55,9 +55,6 @@ export default {
                 this.Users = response.data
                 this.posts = response.data[0].posts
 
-                console.log(this.Users)
-                console.log(this.posts)
-
             })
 
     },

@@ -23,62 +23,99 @@
             </div>
         </header>
     </div>
-    <div class="basic-1">
-        <div class="m-3 datas">
-            <div class="turquoise text-center">
-                <h1 style="font-weight: 700; color: #00bfd8"><span>Our Blog</span></h1>
+
+    <div class="m-3 datas">
+        <div class="turquoise text-center">
+            <h1 style="font-weight: 700; color: #00bfd8"><span>Blog</span></h1>
+        </div>
+        <div class="basic-1">
+            <div class="">
+                <div class="row m-lg-5">
+                    <h2 class="col-lg-12 text-center" style="font-weight: 700; color: #00bfd8">Most Viewed</h2>
+                    <div class="col-lg-6">
+                        <div class="row  ml-4 most-read">
+
+                            <div class="card ml-lg-4" v-bind:key="read.id" v-for="read in reads">
+                                <router-link :to="{name:'Show', params:{id: read.id}}" style="color: black; text-decoration: none;">
+                                    <img v-if="read.image !== 'No image'" class="card-img-top" :src='`images/${read.image}`' alt="Card image cap" style="height: 150px">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{read.title}}</h5>
+                                        <small class="text-muted">By {{read.user_name}} on {{read.created_at}}</small>
+                                    </div>
+                                </router-link>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="text-container">
+                            <h2 style="color: #00bfd8; font-weight: 700">These are our most viewed most posts</h2>
+                            <p>This helps our users to know about their posts which is viewed more by other users</p>
+                            <router-link class="btn-solid-reg popup-with-move-anim" style="" to="/index">View All</router-link>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="row ml-5 mt-5">
-                <div class="col-lg-4">
-                    <div class="ml-5" style="font-size: 25px; font-weight: 700; color: #00bfd8">Most Read</div>
-                    <div class="row  ml-4 most-read">
-
-                        <div class="card ml-lg-4" v-bind:key="read.id" v-for="read in reads">
-                            <router-link :to="{name:'Show', params:{id: read.id}}" style="color: black; text-decoration: none;">
-                                <img v-if="read.image !== 'No image'" class="card-img-top" :src='`images/${read.image}`' alt="Card image cap" style="height: 150px">
-
-                                <div class="card-body">
-                                    <h5 class="card-title">{{read.title}}</h5>
-                                    <small class="text-muted">By {{read.user_name}} on {{read.created_at}}</small>
-                                </div>
-                            </router-link>
+        </div>
+        <div class="basic-1">
+            <div class="">
+                <div class="row m-lg-5">
+                    <h2 class="col-lg-12 text-center" style="font-weight: 700; color: #00bfd8">Latest Posts</h2>
+                    <div class="col-lg-6">
+                        <div class="text-container">
+                            <h2 style="color: #00bfd8; font-weight: 700">This is the latest post on the platform</h2>
+                            <p>Once a post has been posted, it is seen on this part, and it helps users to views latest content by other users</p>
+                            <router-link class="btn-solid-reg popup-with-move-anim" style="" to="/index">View All</router-link>
                         </div>
-
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="ml-5" style="font-size: 25px; font-weight: 700; color: #00bfd8">Latest Posts</div>
-                    <div class="row ml-4 most-read">
-                        <div class="card ml-lg-4" v-bind:key="post.id" v-for="post in posts">
-                            <router-link :to="{name:'Show', params:{id: post.id}}" style="color: black; text-decoration: none;">
-                                <img v-if="post.image !== 'No image'" class="card-img-top" :src='`images/${post.image}`' alt="Card image cap" style="height: 150px">
+                    <div class="col-lg-6">
+                        <div class="row ml-4 most-read">
+                            <div class="card ml-lg-4" v-bind:key="post.id" v-for="post in posts">
+                                <router-link :to="{name:'Show', params:{id: post.id}}" style="color: black; text-decoration: none;">
+                                    <img v-if="post.image !== 'No image'" class="card-img-top" :src='`images/${post.image}`' alt="Card image cap" style="height: 150px">
 
-                                <div class="card-body">
-                                    <h5 class="card-title">{{post.title}}</h5>
-                                    <div v-if="User.name == post.user_name">
-                                        <small class="text-muted">On {{post.created_at}} by You</small>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{post.title}}</h5>
+                                        <div v-if="User.name == post.user_name">
+                                            <small class="text-muted">On {{post.created_at}} by You</small>
+                                        </div>
+                                        <div v-else>
+                                            <small class="text-muted">On {{post.created_at}} by {{post.user_name}}</small>
+                                        </div>
                                     </div>
-                                    <div v-else>
-                                        <small class="text-muted">On {{post.created_at}} by {{post.user_name}}</small>
-                                    </div>
-                                </div>
-                            </router-link>
+                                </router-link>
 
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="ml-4" style="font-size: 25px; font-weight: 700; color: #00bfd8">Top Posters</div>
-                    <div class="row  ml-4 mb-5">
-                        <div v-bind:key="User.id" v-for="User in Users">
-                            <div class="card " v-if="User.role == 'user' && User.post_counts >= 1" style="width: 200px; height: 280px">
-                                <img v-if="User.avatar" class="card-img-top" :src='`images/${User.avatar}`' alt="Card image cap" style="height: 180px; border-radius: 50px">
-                                <i v-else-if="User.avatar == null" class="fas fa-user mt-3 text-center" style="font-size: 165px; color: #686363"></i>
-                                <div class="card-body">
-                                    <p class="card-text"> {{User.name}} {{User.lastName}}</p>
-                                    <small>With {{User.post_counts}} posts</small>
+            </div>
+        </div>
+        <div class="basic-1">
+            <div class="">
+                <div class="row m-lg-5">
+                    <h2 class="col-lg-12 text-center" style="font-weight: 700; color: #00bfd8;">Top Posters</h2>
+                    <div class="col-lg-6">
+                        <div class="row  ml-4">
+                            <div v-bind:key="User.id" v-for="User in Users">
+                                <div class="card " v-if="User.role == 'user' && User.post_counts >= 1" style="width: 200px; height: 280px">
+                                    <img v-if="User.avatar" class="card-img-top" :src='`images/${User.avatar}`' alt="Card image cap" style="height: 180px; border-radius: 50px">
+                                    <i v-else-if="User.avatar == null" class="fas fa-user mt-3 text-center" style="font-size: 165px; color: #686363"></i>
+                                    <div class="card-body">
+                                        <p class="card-text"> {{User.name}} {{User.lastName}}</p>
+                                        <small>With {{User.post_counts}} posts</small>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ">
+                        <div class="text-container">
+                            <h2 style="color: #00bfd8; font-weight: 700">These are our users who have posted more</h2>
+                            <p>We celebrate our users who took their time to post and use our platform more often, if you want to be here, join and post more</p>
+                            <router-link class="btn-solid-reg popup-with-move-anim" style="" to="/index">View All</router-link>
                         </div>
                     </div>
                 </div>
@@ -290,11 +327,10 @@ export default {
         },
         fetchUser(page_url) {
             let vm = this;
-            page_url = page_url || '/api/auth/index'
+            page_url = page_url || '/api/auth/index3'
             axios.get(page_url)
                 .then(response => {
                     this.Users = response.data.data;
-                    console.log(this.Users)
                     vm.makePaginating(response.data);
                 }).catch(error => console.log(error))
         },
@@ -309,7 +345,7 @@ export default {
         },
         fetchPost(page_url) {
             let vm = this;
-            page_url = page_url || '/api/auth/posts'
+            page_url = page_url || '/api/auth/index4'
             axios.get(page_url)
                 .then(response => {
                     this.posts = response.data.data;
@@ -328,7 +364,7 @@ export default {
 
         fetchRead(page_url) {
             let vm = this;
-            page_url = page_url || '/api/auth/mostRead'
+            page_url = page_url || '/api/auth/mostRead3'
             axios.get(page_url)
                 .then(response => {
                     this.reads = response.data.data;

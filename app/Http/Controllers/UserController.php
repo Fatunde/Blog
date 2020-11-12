@@ -14,10 +14,17 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index3()
 
     {  
-        $users = User::orderBy('post_counts', 'desc')->paginate(4);
+        $users = User::orderBy('post_counts', 'desc')->paginate(3);
+        
+        return  $users;
+    }
+      public function index()
+
+    {  
+        $users = User::orderBy('post_counts', 'desc')->paginate(10);
         
         return  $users;
     }

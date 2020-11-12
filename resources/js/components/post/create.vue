@@ -85,7 +85,6 @@ export default {
             .then(response => {
                 this.User = response.data[0]
 
-                console.log(this.User)
                 if (this.User.paid == null) {
                     this.$router.push("/payment")
                 } else if (this.User.paid == 1 && this.User.activated == null) {

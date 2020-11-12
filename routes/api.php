@@ -25,9 +25,11 @@ Route::group([
     Route::put('postImage{id}', 'PostsController@postImage');
     Route::get('activated', 'AuthController@index');
     Route::get('mostRead', 'PostsController@mostRead');
+    Route::get('mostRead3', 'PostsController@mostRead3');
     Route::get('userPost{id}', 'PostsController@userPost');
     Route::delete('user{id}', 'AuthController@destroy');
     Route::resource('posts', 'PostsController');
+    Route::get('index4', 'PostsController@index4');
     Route::get('indexes', 'AuthController@indexes');
     Route::get('index', 'PostsController@index');
     Route::get('mostView{id}', 'PostsController@mostView');
@@ -35,6 +37,7 @@ Route::group([
     Route::post('create', 'PostsController@store');
     Route::get('users','AuthController@index');
     Route::get('index','UserController@index');
+    Route::get('index3','UserController@index3');
    
     Route::get('show/{id}','PostsController@show');
     Route::put('edit/{id}','PostsController@update');

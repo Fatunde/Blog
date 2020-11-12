@@ -64,8 +64,6 @@ export default {
 
                 this.Users = response.data
 
-                console.log(this.Users)
-
             })
 
     },
@@ -86,7 +84,7 @@ export default {
             axios.put('/api/auth/activate' + User.id, {
                 activated: this.activated
             }).then(response => {
-                console.log(response)
+
             })
         }
     },

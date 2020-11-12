@@ -10,8 +10,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Notifications\Notifiable;
+use App\Notifications\UserActivated;
 use App\Post;
 use App\User;
+
 
 
 class AuthController extends Controller
@@ -162,6 +165,17 @@ class AuthController extends Controller
         $user = User::find($id);
         $user->activated = $request-> input('activated');
         $user->save();
+        $details = [
+            'greeting' => 'Hi Artisan',
+            'body' => 'This is my first notification from ItSolutionStuff.com',
+            'thanks' => 'Thank you for using ItSolutionStuff.com tuto!',
+            'actionText' => 'View My Site',
+            'actionURL' => url('/'),
+            'order_id' => 101
+        ];
+     
+        $user->notify(new \App\Notifications\UserActivated($details));
+        
         return "User Accepted";
         } else {
     

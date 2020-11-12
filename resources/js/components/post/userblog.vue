@@ -140,7 +140,7 @@ export default {
             axios.get(page_url)
                 .then(response => {
                     this.Users = response.data.data;
-                    console.log(this.Users)
+
                     vm.makePaginating(response.data);
                 }).catch(error => console.log(error))
         },

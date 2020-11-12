@@ -1,8 +1,8 @@
 <template>
 <div class="all">
     <Navbar />
-
-    <section class="mt-5">
+    <br />
+    <section class="mt-5 m-5">
 
         <div class="mt-5 ml-lg-5 recent">
             Most read blogs
@@ -137,7 +137,6 @@ export default {
             axios.get(page_url)
                 .then(response => {
                     this.Users = response.data.data;
-                    console.log(this.Users)
                     vm.makePaginating(response.data);
                 }).catch(error => console.log(error))
         },
@@ -199,6 +198,7 @@ export default {
 <style scoped>
 .all {
     background: url('../images/contact-background.jpg');
+    background-size: contain;
     height: 100%;
 }
 
